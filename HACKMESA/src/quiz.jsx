@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { QUIZ } from './data';
 import { Icon, Nav } from './shared';
@@ -6,6 +6,8 @@ import { Icon, Nav } from './shared';
 export default function Quiz({ onNav, answers, setAnswers }) {
   const [i, setI] = useState(0);
   const [slideKey, setSlideKey] = useState(0);
+  const [searchValue, setSearchValue] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
   const q = QUIZ[i];
   const total = QUIZ.length;
 
@@ -15,30 +17,8 @@ export default function Quiz({ onNav, answers, setAnswers }) {
   };
 
   const choose = (key) => {
-    setAnswers({ ...answers, [q.id]: key });
-    setTimeout(() => {
-      if (i < total - 1) goTo(i + 1);
-      else onNav('results');
-    }, 350);
-  };
+    setAnswers((current) => ({ ...current, [q.id]: key }));
 
-  const toggleMulti = (key) => {
-    const current = Array.isArray(answers[q.id]) ? answers[q.id] : [];
-
-    if (key === 'Any') {
-      setAnswers({ ...answers, [q.id]: ['Any'] });
-      return;
-    }
-
-    const withoutAny = current.filter((value) => value !== 'Any');
-    const next = withoutAny.includes(key)
-      ? withoutAny.filter((value) => value !== key)
-      : [...withoutAny, key];
-
-    setAnswers({ ...answers, [q.id]: next });
-  };
-
-  const submitMulti = () => {
     if (i < total - 1) {
       goTo(i + 1);
       return;
@@ -47,8 +27,63 @@ export default function Quiz({ onNav, answers, setAnswers }) {
     onNav('results');
   };
 
+  const chooseFromSearch = (value) => {
+    setSearchValue(value);
+
+    const normalizedValue = value.trim().toLowerCase();
+    const matchedOption = q.options.find((option) => {
+      return option.label.toLowerCase() === normalizedValue || option.key.toLowerCase() === normalizedValue;
+    });
+
+    setAnswers((current) => {
+      const next = { ...current };
+
+      if (matchedOption) {
+        next[q.id] = matchedOption.key;
+      } else {
+        delete next[q.id];
+      }
+
+      return next;
+    });
+  };
+
+  const selectSearchOption = (option) => {
+    setSearchValue(option.label);
+    setAnswers((current) => ({ ...current, [q.id]: option.key }));
+    setSearchFocused(false);
+  };
+
+  const submitSearch = () => {
+    if (!cur) {
+      return;
+    }
+
+    choose(cur);
+  };
+
   const cur = answers[q.id];
-  const multiCur = Array.isArray(cur) ? cur : [];
+  const filteredOptions = q.type === 'search-select'
+    ? q.options.filter((option) => {
+        const query = searchValue.trim().toLowerCase();
+
+        if (!query) {
+          return option.key === 'Any';
+        }
+
+        return option.label.toLowerCase().includes(query) || option.key.toLowerCase().includes(query);
+      }).slice(0, 6)
+    : [];
+
+  useEffect(() => {
+    if (q.type !== 'search-select') {
+      setSearchValue('');
+      return;
+    }
+
+    const currentOption = q.options.find((option) => option.key === cur);
+    setSearchValue(currentOption?.label || '');
+  }, [cur, q]);
 
   return (
     <div className="page" data-screen-label={`03 Quiz · ${i+1}/${total}`}>
@@ -75,36 +110,60 @@ export default function Quiz({ onNav, answers, setAnswers }) {
                   ))}
                 </select>
               </div>
-            ) : q.type === 'multi' ? (
-              <div style={{ width: '100%', maxWidth: 720, margin: '0 auto' }}>
-                <div className="quiz-options">
-                  {q.options.map((o) => {
-                    const selected = multiCur.includes(o.key);
+            ) : q.type === 'search-select' ? (
+              <div className="quiz-search-select">
+                <div className={'quiz-search-shell' + (searchFocused ? ' on' : '')}>
+                  <input
+                    className="quiz-search-input"
+                    value={searchValue}
+                    onChange={(event) => chooseFromSearch(event.target.value)}
+                    onFocus={() => setSearchFocused(true)}
+                    onBlur={() => setTimeout(() => setSearchFocused(false), 120)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter') {
+                        event.preventDefault();
+                        submitSearch();
+                      }
+                    }}
+                    placeholder="Type a state..."
+                    autoComplete="off"
+                  />
+                  <div className="quiz-search-meta">
+                    <span>{cur ? 'Selection ready' : 'Pick one location or no preference'}</span>
+                    <span>{cur ? 'Press Enter to submit' : 'Type to search'}</span>
+                  </div>
+                </div>
 
-                    return (
+                {(searchFocused || searchValue) && filteredOptions.length > 0 ? (
+                  <div className="quiz-search-results">
+                    {filteredOptions.map((option) => (
                       <button
-                        key={o.key}
-                        className={'q-option' + (selected ? ' sel' : '')}
-                        onClick={() => toggleMulti(o.key)}
+                        key={option.key}
+                        type="button"
+                        className={'quiz-search-option' + (cur === option.key ? ' sel' : '')}
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => selectSearchOption(option)}
                       >
-                        {o.label}
+                        <span>{option.label}</span>
+                        <span>{option.key === 'Any' ? 'all states' : option.key}</span>
                       </button>
-                    );
-                  })}
+                    ))}
+                  </div>
+                ) : null}
+
+                <div className="quiz-search-help">
+                  Start typing, select one option, then click below or press Enter.
                 </div>
 
-                <div style={{ marginTop: 18, textAlign: 'center', color: 'var(--ink-2)', fontSize: 14 }}>
-                  {multiCur.length > 0 ? `${multiCur.length} selected` : 'Choose at least one option to continue'}
-                </div>
-
-                <div style={{ marginTop: 18, display: 'flex', justifyContent: 'center' }}>
+                <div className="quiz-search-actions">
                   <button
+                    type="button"
                     className="btn"
-                    disabled={multiCur.length === 0}
-                    style={multiCur.length === 0 ? { opacity: 0.35, cursor: 'not-allowed' } : undefined}
-                    onClick={submitMulti}
+                    disabled={!cur}
+                    style={!cur ? { opacity: 0.35, cursor: 'not-allowed' } : undefined}
+                    onClick={submitSearch}
                   >
-                    Continue <Icon.arrowR size={14}/>
+                    {i === total - 1 ? 'See matches' : 'Continue'} <Icon.arrowR size={14}/>
                   </button>
                 </div>
               </div>

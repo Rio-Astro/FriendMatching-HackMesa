@@ -69,47 +69,37 @@ a {
 }
 
 @keyframes floatA {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  25% {
-    transform: translate(30px, -20px) rotate(2deg);
-  }
-
-  50% {
-    transform: translate(-10px, -40px) rotate(-1deg);
-  }
-
-  75% {
-    transform: translate(-30px, -10px) rotate(3deg);
-  }
-
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(60px, -35px) rotate(3deg); }
+  40%  { transform: translate(-20px, -70px) rotate(-2deg); }
+  60%  { transform: translate(-55px, -15px) rotate(4deg); }
+  80%  { transform: translate(25px, 30px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 @keyframes floatB {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(-50px, 40px) rotate(-3deg); }
+  40%  { transform: translate(30px, 65px) rotate(2deg); }
+  60%  { transform: translate(55px, -25px) rotate(-4deg); }
+  80%  { transform: translate(-35px, -40px) rotate(2.5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
 
-  25% {
-    transform: translate(-25px, 15px) rotate(-2deg);
-  }
+@keyframes floatC {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-65px, -50px) rotate(3.5deg); }
+  50%  { transform: translate(40px, -20px) rotate(-2.5deg); }
+  75%  { transform: translate(-15px, 55px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
 
-  50% {
-    transform: translate(15px, 35px) rotate(1.5deg);
-  }
-
-  75% {
-    transform: translate(20px, -15px) rotate(-3deg);
-  }
-
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
+@keyframes floatD {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(45px, 50px) rotate(-2deg); }
+  45%  { transform: translate(-55px, 20px) rotate(3deg); }
+  70%  { transform: translate(20px, -60px) rotate(-3.5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 @keyframes fadeUp {
@@ -137,96 +127,44 @@ a {
 }
 
 @keyframes blobMorphA {
-  0%,
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-
-  25% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-
-  50% {
-    border-radius: 50% 60% 30% 60% / 30% 50% 70% 50%;
-  }
-
-  75% {
-    border-radius: 60% 30% 50% 40% / 50% 70% 30% 60%;
-  }
+  0%, 100% { border-radius: 70% 30% 25% 75% / 65% 25% 75% 35%; }
+  20%      { border-radius: 25% 75% 65% 35% / 45% 70% 30% 55%; }
+  40%      { border-radius: 55% 45% 30% 70% / 75% 35% 65% 25%; }
+  60%      { border-radius: 35% 65% 75% 25% / 30% 60% 40% 70%; }
+  80%      { border-radius: 65% 35% 45% 55% / 55% 25% 75% 45%; }
 }
 
 @keyframes blobMorphB {
-  0%,
-  100% {
-    border-radius: 40% 60% 60% 40% / 70% 30% 60% 40%;
-  }
-
-  25% {
-    border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%;
-  }
-
-  50% {
-    border-radius: 30% 50% 70% 30% / 60% 40% 50% 70%;
-  }
-
-  75% {
-    border-radius: 50% 70% 30% 60% / 30% 70% 60% 30%;
-  }
+  0%, 100% { border-radius: 30% 70% 70% 30% / 75% 25% 65% 35%; }
+  25%      { border-radius: 75% 25% 35% 65% / 30% 55% 45% 70%; }
+  50%      { border-radius: 20% 80% 55% 45% / 65% 40% 70% 30%; }
+  75%      { border-radius: 60% 40% 80% 20% / 35% 30% 55% 75%; }
 }
 
 @keyframes blobMorphC {
-  0%,
-  100% {
-    border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
-  }
-
-  33% {
-    border-radius: 60% 40% 50% 50% / 50% 40% 60% 50%;
-  }
-
-  66% {
-    border-radius: 40% 60% 60% 40% / 60% 50% 40% 60%;
-  }
+  0%, 100% { border-radius: 80% 20% 40% 60% / 35% 65% 25% 75%; }
+  25%      { border-radius: 25% 75% 60% 40% / 70% 30% 75% 25%; }
+  50%      { border-radius: 60% 40% 20% 80% / 25% 75% 40% 60%; }
+  75%      { border-radius: 40% 60% 75% 25% / 60% 20% 65% 35%; }
 }
 
 @keyframes blobMorphD {
-  0%,
-  100% {
-    border-radius: 70% 30% 30% 70% / 50% 50% 60% 40%;
-  }
-
-  20% {
-    border-radius: 30% 70% 50% 50% / 70% 30% 40% 60%;
-  }
-
-  40% {
-    border-radius: 50% 50% 70% 30% / 30% 60% 50% 70%;
-  }
-
-  60% {
-    border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
-  }
-
-  80% {
-    border-radius: 60% 40% 60% 40% / 40% 70% 30% 60%;
-  }
+  0%, 100% { border-radius: 25% 75% 55% 45% / 70% 30% 80% 20%; }
+  20%      { border-radius: 65% 35% 20% 80% / 25% 75% 35% 65%; }
+  40%      { border-radius: 35% 65% 80% 20% / 55% 45% 25% 75%; }
+  60%      { border-radius: 80% 20% 45% 55% / 30% 65% 70% 35%; }
+  80%      { border-radius: 45% 55% 65% 35% / 75% 20% 45% 80%; }
 }
 
 @keyframes blobPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.04);
-  }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateX(24px);
+    transform: translateX(12px);
   }
 
   to {
@@ -639,7 +577,7 @@ a {
 .quiz-bar-fill {
   height: 100%;
   background: var(--ink);
-  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width 0.24s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .quiz-body {
@@ -656,8 +594,123 @@ a {
 }
 
 .quiz-slide {
-  animation: slideIn 0.3s ease both;
+  animation: slideIn 0.22s ease both;
   width: 100%;
+}
+
+.quiz-search-select {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.quiz-search-shell {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+  border-radius: 20px;
+  padding: 16px 18px 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.quiz-search-shell.on {
+  border-color: var(--ink);
+  box-shadow: 0 10px 30px rgba(16, 18, 23, 0.08);
+  transform: translateY(-1px);
+}
+
+.quiz-search-input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 4px 0 0;
+  font-family: var(--font-fraunces), serif;
+  font-weight: 350;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-size: 30px;
+  color: var(--ink);
+  outline: none;
+}
+
+.quiz-search-input::placeholder {
+  color: color-mix(in srgb, var(--ink-2) 70%, white);
+}
+
+.quiz-search-meta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.quiz-search-results {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-search-option {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+  color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.quiz-search-option span:first-child {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.quiz-search-option span:last-child {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.quiz-search-option:hover {
+  border-color: var(--ink);
+  background: var(--paper);
+  transform: translateY(-1px);
+}
+
+.quiz-search-option.sel {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.quiz-search-option.sel span:last-child {
+  color: color-mix(in srgb, var(--white) 76%, transparent);
+}
+
+.quiz-search-help {
+  margin-top: 14px;
+  text-align: center;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+.quiz-search-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .quiz-body h2 {
@@ -1589,6 +1642,19 @@ a {
   .q-option {
     padding: 18px 16px;
     font-size: 15px;
+  }
+
+  .quiz-search-shell {
+    padding: 14px 16px 12px;
+    border-radius: 18px;
+  }
+
+  .quiz-search-input {
+    font-size: 24px;
+  }
+
+  .quiz-search-option {
+    padding: 12px 14px;
   }
 
   .results-head,

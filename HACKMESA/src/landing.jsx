@@ -15,14 +15,14 @@ const CAMPUS_IMAGES = {
 };
 
 const BUBBLE_ZONES = [
-  [3, 16, 6, 30],     // top-left
-  [78, 94, 6, 28],    // top-right
-  [2, 14, 60, 84],    // bottom-left
-  [82, 96, 58, 82],   // bottom-right
-  [28, 42, 3, 16],    // top-center-left
-  [58, 72, 3, 16],    // top-center-right
-  [22, 38, 80, 94],   // bottom-center-left
-  [62, 76, 80, 94],   // bottom-center-right
+  [2, 14, 10, 32],    // top-left
+  [82, 96, 8, 28],    // top-right
+  [2, 14, 62, 86],    // bottom-left
+  [84, 97, 60, 84],   // bottom-right
+  [30, 42, 0, 10],    // top-center-left (pushed higher)
+  [60, 72, 0, 10],    // top-center-right (pushed higher)
+  [20, 36, 84, 97],   // bottom-center-left
+  [64, 78, 84, 97],   // bottom-center-right
 ];
 
 function seededOffset(index, min, max) {
@@ -58,11 +58,12 @@ function Bubble({ uni, index, size }) {
   const zone = BUBBLE_ZONES[index % BUBBLE_ZONES.length];
   const left = seededOffset(index, zone[0], zone[1]);
   const top = seededOffset(index + 8, zone[2], zone[3]);
-  const animName = index % 2 === 0 ? 'floatA' : 'floatB';
-  const duration = 18 + index * 3;
+  const FLOAT_ANIMS = ['floatA', 'floatB', 'floatC', 'floatD'];
+  const animName = FLOAT_ANIMS[index % FLOAT_ANIMS.length];
+  const duration = 20 + index * 4;
   const animDelay = 0.3 + index * 0.25;
   const morphName = BLOB_MORPHS[index % BLOB_MORPHS.length];
-  const morphDuration = 12 + index * 2;
+  const morphDuration = 8 + index * 1.5;
   const pulseDelay = index * 1.5;
   const imgSrc = CAMPUS_IMAGES[uni.id];
 
@@ -111,7 +112,7 @@ function Bubble({ uni, index, size }) {
   );
 }
 
-const BUBBLE_SIZES = [130, 110, 140, 100, 120, 105, 135, 115];
+const BUBBLE_SIZES = [150, 125, 160, 115, 140, 120, 155, 130];
 const BLOB_MORPHS = ['blobMorphA', 'blobMorphB', 'blobMorphC', 'blobMorphD'];
 
 export default function Landing({ onNav }) {

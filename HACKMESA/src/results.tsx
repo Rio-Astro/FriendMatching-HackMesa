@@ -31,6 +31,7 @@ const CONFETTI_PIECES = Array.from({ length: 56 }, (_, index) => ({
 
 export default function Results({ onNav, saved, toggleSave, answers, colleges, setColleges }: ResultsProps) {
   const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [popupCollege, setPopupCollege] = useState<MatchedSchool | null>(null);
   const [pitch, setPitch] = useState<string | null>(null);
@@ -103,20 +104,27 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
   }, [answers, colleges.length, hasCelebrated, loading]);
 
   const collegeList = colleges?.length ? colleges : UNIVERSITIES;
-  const filters: Array<{ id: 'all' | 'high' | 'small' | 'outdoor' | 'affordable'; label: string }> = [
+  const filters: Array<{ id: string; label: string }> = [
     { id: 'all', label: 'All matches' },
     { id: 'high', label: 'Best fit (90+)' },
+    { id: 'uc', label: 'UC System' },
+    { id: 'csu', label: 'CSU System' },
+    { id: 'tx', label: 'Texas Systems' },
     { id: 'small', label: 'Small campus' },
     { id: 'outdoor', label: 'Outdoorsy' },
     { id: 'affordable', label: 'Affordable' },
   ];
 
   const list = collegeList.filter((u) => {
-    if (filter === 'all') return true;
-    if (filter === 'high') return u.score >= 90;
-    if (filter === 'small') return u.size.includes('Small');
-    if (filter === 'outdoor') return u.tags.some(t => /outdoor|nature|coastal/i.test(t));
-    if (filter === 'affordable') return u.band === 'low' || u.band === 'mid';
+    if (filter === 'high' && u.score < 90) return false;
+    if (filter === 'small' && !u.size.includes('Small')) return false;
+    if (filter === 'outdoor' && !u.tags.some(t => /outdoor|nature|coastal/i.test(t))) return false;
+    if (filter === 'affordable' && !(u.band === 'low' || u.band === 'mid')) return false;
+    if (filter === 'uc' && !(u.name.startsWith('UC ') || u.name === 'UCLA' || u.name.toLowerCase().includes('university of california'))) return false;
+    if (filter === 'csu' && !(u.name.startsWith('CSU ') || u.name.startsWith('Cal Poly') || (u.name.includes('State') && u.state.includes('CA')))) return false;
+    if (filter === 'tx' && !u.state.includes('TX')) return false;
+    
+    if (search.trim() && !u.name.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
   });
 
@@ -145,11 +153,11 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
       <div className="results">
         <div className="results-head">
           <div>
-            <span className="eyebrow">Results</span>
-            <h1>Congratulations!</h1>
+            <span className="eyebrow">Your matches · Based on 8 answers</span>
+            <h1>Top places that could feel like home.</h1>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
-            <span className="mono-tag">{saved.length} saved · {list.length} shown</span>
+            <span className="mono-tag">{saved.length} saved · {search.trim() ? list.length : Math.min(8, list.length)} shown</span>
             <button className="btn ghost sm" onClick={() => onNav('quiz')}>Retake quiz</button>
           </div>
         </div>
@@ -158,6 +166,13 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
           {filters.map(f => (
             <button key={f.id} className={'chip ' + (filter === f.id ? 'on' : '')} onClick={() => setFilter(f.id)}>{f.label}</button>
           ))}
+          <input 
+            type="text" 
+            placeholder="Search specific colleges..." 
+            value={search} 
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ padding: '8px 16px', borderRadius: 20, border: '1px solid var(--line)', outline: 'none', fontFamily: 'inherit', fontSize: 14, flex: 1, minWidth: 200, maxWidth: 300 }}
+          />
         </div>
 
         {loading ? (
@@ -166,7 +181,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
           </div>
         ) : (
           <div className="result-list">
-            {list.map((u, idx) => (
+            {(search.trim() ? list : list.slice(0, 8)).map((u, idx) => (
                 (() => {
                   const compatibilityColor = getCompatibilityColor(u.score);
 

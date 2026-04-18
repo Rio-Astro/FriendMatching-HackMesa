@@ -6,3 +6,6 @@ HACKMESA/uploads/prototype-plan.md
 .env
 .vercel
 .neon
+
+# clerk configuration (can include secrets)
+/.clerk/

@@ -981,6 +981,8 @@ a {
   grid-template-columns: 320px 1fr;
   gap: 32px;
   padding: 56px 48px;
+  height: calc(100vh - 80px);
+  overflow: hidden;
 }
 
 .friends-side {
@@ -1031,6 +1033,10 @@ a {
   grid-template-columns: minmax(0, 1fr) 240px;
   gap: 24px;
   align-items: start;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 60px;
+  padding-right: 12px;
 }
 
 .friend-card {

@@ -102,6 +102,7 @@ export function Nav({ route, onNav, showLogin = false }) {
         ) : showAccountChrome && isDemoMode ? (
           <>
             <span className="mono-tag" style={{ marginRight: 10 }}>demo mode</span>
+            <button className="btn outline" style={{ marginRight: 10, fontSize: 13, padding: '6px 14px' }} onClick={() => onNav('auth')}>Signup / Login</button>
             <MonoAvatar initials="YOU" emoji="🧑" size={36} />
           </>
         ) : null}

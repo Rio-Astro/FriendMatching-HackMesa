@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { getActiveSchools } from '@/lib/neon';
+import collegesData from '../../colleges.json';
 import type { MatchedSchool, QuizAnswers } from '@/lib/types';
 
 type MatchRequestBody = {
@@ -18,7 +18,8 @@ function matchesSelectedState(location: string, selectedStates: string[]) {
 export async function POST(request: Request) {
   try {
     const { answers } = (await request.json()) as MatchRequestBody;
-    const collegesData = await getActiveSchools();
+    // Bypassing remote Postgres db in favor of local json artifact
+    const activeSchools = collegesData as any[];
     const selectedStates = Array.isArray(answers.q9)
       ? answers.q9
       : answers.q9
@@ -81,8 +82,8 @@ export async function POST(request: Request) {
       return a.name.localeCompare(b.name);
     });
 
-    // Return top 8
-    return NextResponse.json(matches.slice(0, 8));
+    // Return entire scaled set of calculated matches locally so UX search is unfiltered
+    return NextResponse.json(matches);
 
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown match error';

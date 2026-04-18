@@ -99,11 +99,7 @@ export default function MesaApp() {
       return;
     }
 
-    const allowedRoutes = new Set<RouteName>(['landing']);
-
-    if (!hasAuthAccess) {
-      allowedRoutes.add('auth');
-    }
+    const allowedRoutes = new Set<RouteName>(['landing', 'auth']);
 
     if (hasAuthAccess) {
       allowedRoutes.add('quiz');

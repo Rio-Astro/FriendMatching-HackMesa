@@ -66,6 +66,17 @@
 - The auth screen keeps demo mode available even with Clerk enabled.
 - Real auth works today, but `saved_schools`, `user_profiles`, and `quiz_results` tables are not yet connected to client actions.
 
+## Friend Matching Notes
+
+- Friend matching in the UI is still static right now and reads from `FRIENDS` in `HACKMESA/src/data.js`.
+- Planned launch direction is a hybrid feed: real signed-up users first, with clearly labeled `Demo` or `AI` profiles backfilling only when there are too few real matches.
+- Demo/AI profiles should be pre-generated and stored ahead of time, not generated live during showcase requests.
+- Launch target for the demo/AI profile pool is `30 to 50`, starting at the low end unless more variety is needed.
+- Planned launch safety controls are `hide`, `block`, and `report`.
+- Current launch direction for messaging is basic async messaging only after mutual interest, not realtime chat.
+- Profile photos should default to avatars at launch; if uploads are added later, keep it to one profile photo per user.
+- If Clerk provides a real user profile image, prefer reusing that URL before adding custom upload storage.
+
 ## Matching Notes
 
 - Matching must stay deterministic for the same answer set.

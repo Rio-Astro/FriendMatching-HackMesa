@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 
+import type { Dispatch, SetStateAction } from 'react';
+
+import type { QuizAnswers, QuizOption, QuizQuestion, RouteName } from '@/lib/types';
+
 import { QUIZ } from './data';
 import { Icon, Nav } from './shared';
 
@@ -14,20 +18,26 @@ const FONT_SHOWCASE = [
   { family: 'var(--font-manrope), sans-serif', name: 'Manrope', weight: 500 },
 ];
 
-export default function Quiz({ onNav, answers, setAnswers }) {
+type QuizProps = {
+  onNav: (route: RouteName) => void;
+  answers: QuizAnswers;
+  setAnswers: Dispatch<SetStateAction<QuizAnswers>>;
+};
+
+export default function Quiz({ onNav, answers, setAnswers }: QuizProps) {
   const [i, setI] = useState(0);
   const [slideKey, setSlideKey] = useState(0);
   const [searchValue, setSearchValue] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
-  const q = QUIZ[i];
+  const q = QUIZ[i] as QuizQuestion;
   const total = QUIZ.length;
 
-  const goTo = (next) => {
+  const goTo = (next: number) => {
     setSlideKey(prev => prev + 1);
     setI(next);
   };
 
-  const choose = (key) => {
+  const choose = (key: string) => {
     setAnswers((current) => ({ ...current, [q.id]: key }));
 
     if (i < total - 1) {
@@ -38,7 +48,7 @@ export default function Quiz({ onNav, answers, setAnswers }) {
     onNav('results');
   };
 
-  const chooseFromSearch = (value) => {
+  const chooseFromSearch = (value: string) => {
     setSearchValue(value);
 
     const normalizedValue = value.trim().toLowerCase();
@@ -59,7 +69,7 @@ export default function Quiz({ onNav, answers, setAnswers }) {
     });
   };
 
-  const selectSearchOption = (option) => {
+  const selectSearchOption = (option: QuizOption) => {
     setSearchValue(option.label);
     setAnswers((current) => ({ ...current, [q.id]: option.key }));
     setSearchFocused(false);
@@ -126,9 +136,9 @@ export default function Quiz({ onNav, answers, setAnswers }) {
                   onChange={e => choose(e.target.value)}
                 >
                   <option value="" disabled>Select an option...</option>
-                  {q.options.map(o => (
-                    <option key={o.key} value={o.key}>{o.label}</option>
-                  ))}
+                    {q.options.map((o) => (
+                      <option key={o.key} value={o.key}>{o.label}</option>
+                    ))}
                 </select>
               </div>
             ) : q.type === 'search-select' ? (
@@ -190,10 +200,11 @@ export default function Quiz({ onNav, answers, setAnswers }) {
               </div>
             ) : (
               <div className="quiz-options">
-                {q.options.map(o => (
+                {q.options.map((o) => (
                   <button
                     key={o.key}
                     className={'q-option' + (cur === o.key ? ' sel' : '')}
+                    type="button"
                     onClick={() => choose(o.key)}
                   >
                     {o.label}

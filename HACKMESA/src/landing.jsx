@@ -143,7 +143,7 @@ export default function Landing({ onNav }) {
           <h1 className={isDone ? 'typewriter-done' : 'typewriter-cursor'}>
             {titleParts.map((part, i) => (
               <Fragment key={i}>
-                {i > 0 ? <br/> : null}
+                {i > 0 && part ? <br/> : null}
                 {part}
               </Fragment>
             ))}

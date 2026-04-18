@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 
 import { getActiveSchools } from '@/lib/neon';
+import type { MatchedSchool, QuizAnswers } from '@/lib/types';
+
+type MatchRequestBody = {
+  answers: QuizAnswers;
+};
 
 function matchesSelectedState(location: string, selectedStates: string[]) {
   if (selectedStates.length === 0 || selectedStates.includes('Any')) {
@@ -12,7 +17,7 @@ function matchesSelectedState(location: string, selectedStates: string[]) {
 
 export async function POST(request: Request) {
   try {
-    const { answers } = await request.json();
+    const { answers } = (await request.json()) as MatchRequestBody;
     const collegesData = await getActiveSchools();
     const selectedStates = Array.isArray(answers.q9)
       ? answers.q9
@@ -25,7 +30,7 @@ export async function POST(request: Request) {
     const filteredColleges = collegesData.filter((c) => matchesSelectedState(c.state, selectedStates));
 
     // We assign points to each college based on user properties
-    const matches = filteredColleges.map(c => {
+    const matches: MatchedSchool[] = filteredColleges.map((c) => {
       let score = 50; // base score
 
       // Scale (q2): A: small, B: mid, C: large, D: very large
@@ -51,7 +56,7 @@ export async function POST(request: Request) {
       if (answers.q3 === 'D' && (c.tags.includes('rural') || c.tags.includes('nature'))) score += 8;
 
       // General tags match
-      ['intellectual','tech','creative','spirited','nature','urban','historic','close-knit','writing'].forEach(t => {
+      ['intellectual', 'tech', 'creative', 'spirited', 'nature', 'urban', 'historic', 'close-knit', 'writing'].forEach((t) => {
         if (c.tags.includes(t)) {
           score += 2;
         }
@@ -79,8 +84,9 @@ export async function POST(request: Request) {
     // Return top 8
     return NextResponse.json(matches.slice(0, 8));
 
-  } catch (error: any) {
-    console.error("Match error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown match error';
+    console.error('Match error:', error);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

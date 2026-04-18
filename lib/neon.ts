@@ -1,5 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 
+import type { School } from '@/lib/types';
+
 type SchoolRow = {
   id: string;
   name: string;
@@ -11,18 +13,6 @@ type SchoolRow = {
   image_url: string | null;
   bio: string | null;
   tags: string[] | null;
-};
-
-export type School = {
-  id: string;
-  name: string;
-  state: string;
-  size: string;
-  tuition: string;
-  band: string;
-  tags: string[];
-  imageUrl: string | null;
-  bio: string;
 };
 
 function sanitizeDatabaseUrl(databaseUrl: string) {

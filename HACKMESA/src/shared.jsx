@@ -54,12 +54,13 @@ export function Logo({ onNav, small }) {
   );
 }
 
-export function Nav({ route, onNav, showLogin }) {
+export function Nav({ route, onNav, showLogin = false }) {
   const items = [
     { id: 'landing', label: 'Home' },
     { id: 'quiz', label: 'Quiz' },
     { id: 'results', label: 'Matches' },
     { id: 'friends', label: 'Friends' },
+    { id: 'network', label: 'Network' },
     { id: 'posts', label: 'Posts' },
   ];
   return (
@@ -129,6 +130,11 @@ export const Icon = {
   msg: (p) => (
     <svg width={p.size||16} height={p.size||16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  ),
+  search: (p) => (
+    <svg width={p.size||16} height={p.size||16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
     </svg>
   ),
 };

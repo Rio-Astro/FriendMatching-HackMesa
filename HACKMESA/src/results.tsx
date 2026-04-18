@@ -1,15 +1,32 @@
 import { useEffect, useState } from 'react';
 
+import type { Dispatch, SetStateAction } from 'react';
+
+import type { MatchedSchool, QuizAnswers, RouteName } from '@/lib/types';
+
 import { UNIVERSITIES } from './data';
 import { Icon, Nav, SchoolImage } from './shared';
 
-export default function Results({ onNav, saved, toggleSave, answers, colleges, setColleges }) {
+type PitchResponse = {
+  pitch?: string;
+};
+
+type ResultsProps = {
+  onNav: (route: RouteName) => void;
+  saved: string[];
+  toggleSave: (id: string) => void;
+  answers: QuizAnswers;
+  colleges: MatchedSchool[];
+  setColleges: Dispatch<SetStateAction<MatchedSchool[]>>;
+};
+
+export default function Results({ onNav, saved, toggleSave, answers, colleges, setColleges }: ResultsProps) {
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(false);
-  const [popupCollege, setPopupCollege] = useState(null);
-  const [pitch, setPitch] = useState(null);
+  const [popupCollege, setPopupCollege] = useState<MatchedSchool | null>(null);
+  const [pitch, setPitch] = useState<string | null>(null);
 
-  const openPitch = async (college) => {
+  const openPitch = async (college: MatchedSchool) => {
     setPopupCollege(college);
     setPitch(null);
 
@@ -20,7 +37,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
         body: JSON.stringify({ id: college.id, name: college.name }),
       });
 
-      const data = await res.json();
+      const data = (await res.json()) as PitchResponse;
       setPitch(data.pitch || 'Could not load pitch.');
     } catch (error) {
       console.error('Pitch fetch failed', error);
@@ -43,8 +60,8 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
           return;
         }
 
-        const data = await res.json();
-        setColleges(data);
+         const data = (await res.json()) as MatchedSchool[];
+         setColleges(data);
       } catch (error) {
         console.error('Fetch failed', error);
       } finally {
@@ -60,7 +77,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
   }, [answers, setColleges]);
 
   const collegeList = colleges?.length ? colleges : UNIVERSITIES;
-  const filters = [
+  const filters: Array<{ id: 'all' | 'high' | 'small' | 'outdoor' | 'affordable'; label: string }> = [
     { id: 'all', label: 'All matches' },
     { id: 'high', label: 'Best fit (90+)' },
     { id: 'small', label: 'Small campus' },
@@ -116,7 +133,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
                   <div className="loc">{u.state} · {u.size} · tuition {u.tuition}</div>
                   <div className="why">"{u.why}"</div>
                   <div className="tags">
-                    {u.tags.map(t => <span key={t} className="chip">{t}</span>)}
+                    {u.tags.map((t) => <span key={t} className="chip">{t}</span>)}
                   </div>
                 </div>
                 <div className="score">

@@ -1,23 +1,25 @@
-export const UNIVERSITIES = [
-  { id: 'u1', name: 'Pomona College', state: 'Claremont, CA', size: 'Small · 1,700', tuition: '$$$$', band: 'high', tags: ['liberal arts','residential','close-knit'], score: 96,
+import type { FriendCard, MatchedSchool, PostItem, QuizQuestion } from '@/lib/types';
+
+export const UNIVERSITIES: MatchedSchool[] = [
+  { id: 'u1', name: 'Pomona College', state: 'Claremont, CA', size: 'Small · 1,700', tuition: '$$$$', band: 'high', tags: ['liberal arts','residential','close-knit'], imageUrl: null, bio: '', score: 96,
     why: 'Small, tight-knit liberal arts feel matches how you described your ideal day. Strong creative writing + neuroscience overlap.' },
-  { id: 'u2', name: 'Oberlin College', state: 'Oberlin, OH', size: 'Small · 2,900', tuition: '$$$', band: 'mid', tags: ['arts-forward','progressive','music'], score: 93,
+  { id: 'u2', name: 'Oberlin College', state: 'Oberlin, OH', size: 'Small · 2,900', tuition: '$$$', band: 'mid', tags: ['arts-forward','progressive','music'], imageUrl: null, bio: '', score: 93,
     why: 'Music double-degree pathway fits your hobby interest. Campus culture leans quietly creative, which is your vibe.' },
-  { id: 'u3', name: 'UC Santa Cruz', state: 'Santa Cruz, CA', size: 'Mid · 19k', tuition: '$$', band: 'low', tags: ['nature','quirky','marine bio'], score: 91,
+  { id: 'u3', name: 'UC Santa Cruz', state: 'Santa Cruz, CA', size: 'Mid · 19k', tuition: '$$', band: 'low', tags: ['nature','quirky','marine bio'], imageUrl: null, bio: '', score: 91,
     why: 'Redwoods and coastline for the outdoors answer. Large enough to find niches, small enough to be found.' },
-  { id: 'u4', name: 'Macalester College', state: 'St. Paul, MN', size: 'Small · 2,100', tuition: '$$$', band: 'mid', tags: ['international','urban-adjacent','civic'], score: 89,
+  { id: 'u4', name: 'Macalester College', state: 'St. Paul, MN', size: 'Small · 2,100', tuition: '$$$', band: 'mid', tags: ['international','urban-adjacent','civic'], imageUrl: null, bio: '', score: 89,
     why: 'You wanted a college town next to a real city. St. Paul delivers. Global studies is a strong thread here.' },
-  { id: 'u5', name: 'Bowdoin College', state: 'Brunswick, ME', size: 'Small · 1,900', tuition: '$$$$', band: 'high', tags: ['coastal','outdoorsy','traditional'], score: 87,
+  { id: 'u5', name: 'Bowdoin College', state: 'Brunswick, ME', size: 'Small · 1,900', tuition: '$$$$', band: 'high', tags: ['coastal','outdoorsy','traditional'], imageUrl: null, bio: '', score: 87,
     why: 'Outdoor Orientation Trips are legendary. Coastal Maine and a small campus suits your described rhythm.' },
-  { id: 'u6', name: 'Kenyon College', state: 'Gambier, OH', size: 'Small · 1,800', tuition: '$$$', band: 'mid', tags: ['writing','rural','literary'], score: 85,
+  { id: 'u6', name: 'Kenyon College', state: 'Gambier, OH', size: 'Small · 1,800', tuition: '$$$', band: 'mid', tags: ['writing','rural','literary'], imageUrl: null, bio: '', score: 85,
     why: 'Literary reputation aligns with your major interests. Tiny town, big creative energy.' },
-  { id: 'u7', name: 'Reed College', state: 'Portland, OR', size: 'Small · 1,500', tuition: '$$$$', band: 'high', tags: ['intellectual','independent','thesis'], score: 82,
+  { id: 'u7', name: 'Reed College', state: 'Portland, OR', size: 'Small · 1,500', tuition: '$$$$', band: 'high', tags: ['intellectual','independent','thesis'], imageUrl: null, bio: '', score: 82,
     why: 'Senior thesis + pass/fail freshman year attracts students who like how you think.' },
-  { id: 'u8', name: 'University of Vermont', state: 'Burlington, VT', size: 'Mid · 11k', tuition: '$$', band: 'low', tags: ['outdoorsy','environmental','public'], score: 78,
+  { id: 'u8', name: 'University of Vermont', state: 'Burlington, VT', size: 'Mid · 11k', tuition: '$$', band: 'low', tags: ['outdoorsy','environmental','public'], imageUrl: null, bio: '', score: 78,
     why: 'Public, affordable, and outdoor-forward. Would stretch you socially in a good way.' },
 ];
 
-export const FRIENDS = [
+export const FRIENDS: FriendCard[] = [
   { id: 'f1', name: 'Maya R.', age: 18, initials: 'MR', school: 'Pomona College (committed)', origin: 'from Oakland, CA',
     bio: "Looking for someone to go on weird museum trips with. Also, please convince me to stop buying records.",
     interests: ['creative writing', 'film photography', 'hiking', 'jazz', 'cooking together'],
@@ -60,7 +62,7 @@ export const FRIENDS = [
     tone: 'clay' },
 ];
 
-export const POSTS = [
+export const POSTS: PostItem[] = [
   { id: 'p1', author: 'Maya R.', initials: 'MR', school: 'Pomona',
     title: 'Looking for a weekend hiking crew (no competitive vibes)',
     body: "I want to get off campus most Saturdays. Claremont has good trails within 30 min. Easy pace, good snacks, no one training for anything. Bonus if you like taking bad photos of lizards.",
@@ -88,7 +90,7 @@ export const POSTS = [
     when: '3d ago', saves: 19, replies: 5 },
 ];
 
-export const QUIZ = [
+export const QUIZ: QuizQuestion[] = [
   { id: 'q1', eyebrow: 'Question 01 · Academics',
     title: "What pulls you first: ideas, making, or helping?",
     hint: "Rough is fine. We'll get more specific later.",

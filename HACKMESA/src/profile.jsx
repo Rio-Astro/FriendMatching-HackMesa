@@ -19,7 +19,7 @@ function getPrimaryMeta(person) {
   return 'Mesa profile';
 }
 
-export default function Profile({ onNav, profileId, isDemoMode, friendFeed, savedFriends, toggleSaveFriend }) {
+export default function Profile({ onNav, profileId, isDemoMode, friendFeed, savedFriends, toggleSaveFriend, onHideFriend, onBlockFriend, onReportFriend }) {
   const person = (isDemoMode ? FRIENDS : friendFeed).find((f) => f.id === profileId);
   const [coverFailed, setCoverFailed] = useState(false);
 
@@ -72,7 +72,7 @@ export default function Profile({ onNav, profileId, isDemoMode, friendFeed, save
               ) : null}
               <div className="profile-hero-inner">
                 <div className="profile-avatar-wrap">
-                  <MonoAvatar initials={person.initials} emoji={person.avatarEmoji} size={120} />
+                  <MonoAvatar initials={person.initials} emoji={person.avatarEmoji} src={person.avatarUrl} size={120} />
                   <div className="profile-compat-badge">
                     <span className="profile-compat-num" style={{ color: compatibilityColor }}>{person.compat}</span>
                     <span className="profile-compat-pct" style={{ color: compatibilityColor }}>%</span>
@@ -88,6 +88,7 @@ export default function Profile({ onNav, profileId, isDemoMode, friendFeed, save
                   </div>
                   <div className="profile-school-badge">
                     {person.school}
+                    {person.demoLabel ? <span className="profile-demo-pill">{person.demoLabel}</span> : null}
                   </div>
                 </div>
               </div>
@@ -198,6 +199,23 @@ export default function Profile({ onNav, profileId, isDemoMode, friendFeed, save
                 ))}
               </div>
             </div>
+
+            {!isDemoMode ? (
+              <div className="profile-sidebar-block">
+                <span className="mono-tag">Safety</span>
+                <div className="profile-safety-actions">
+                  <button className="btn ghost sm" onClick={() => onHideFriend(person.id)}>
+                    Hide profile
+                  </button>
+                  <button className="btn ghost sm" onClick={() => onBlockFriend(person.id)}>
+                    Block profile
+                  </button>
+                  <button className="btn ghost sm" onClick={() => onReportFriend(person.id)}>
+                    Report profile
+                  </button>
+                </div>
+              </div>
+            ) : null}
           </aside>
         </div>
       </div>

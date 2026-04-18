@@ -26,14 +26,29 @@ export function getCompatibilityBadgeStyle(score) {
   };
 }
 
-export function MonoAvatar({ initials, size = 40, emoji = null }) {
+export function MonoAvatar({ initials, size = 40, emoji = null, src = null }) {
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setFailed(false);
+  }, [src]);
+
   return (
     <span className="mono-avatar" style={{
       width: size, height: size, borderRadius: 0,
       fontSize: emoji ? size * 0.5 : size * 0.36,
       background: '#F6F6F6', color: '#000',
       display: 'inline-flex', alignItems: 'center', justifyContent: 'center'
-    }}>{emoji || initials}</span>
+    }}>
+      {src && !failed ? (
+        <img
+          src={src}
+          alt=""
+          onError={() => setFailed(true)}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ) : (emoji || initials)}
+    </span>
   );
 }
 

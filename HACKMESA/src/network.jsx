@@ -29,7 +29,9 @@ export default function Network({
   selected,
   colleges,
   savedFriends,
+  setSavedFriends,
   toggleSaveFriend,
+  onHideFriend,
   friendFeed,
   setFriendFeed,
   setMatchProfile,
@@ -79,6 +81,7 @@ export default function Network({
         setHasMatchProfile(Boolean(profileData.exists));
         setMatchProfile(profileData.profile);
         setFriendFeed(Array.isArray(feedData.items) ? feedData.items : []);
+        setSavedFriends(Array.isArray(feedData.savedProfileIds) ? feedData.savedProfileIds : []);
       } catch (fetchError) {
         if (!cancelled) {
           console.error('Failed to load network data', fetchError);
@@ -96,7 +99,7 @@ export default function Network({
     return () => {
       cancelled = true;
     };
-  }, [isDemoMode, setFriendFeed, setHasMatchProfile, setMatchProfile]);
+  }, [isDemoMode, setFriendFeed, setHasMatchProfile, setMatchProfile, setSavedFriends]);
 
   const filters = [
     { id: 'all', label: 'All People' },
@@ -114,6 +117,21 @@ export default function Network({
     if (filter === 'friends') return savedFriends.includes(p.id);
     return true;
   });
+
+  const visibleCoverUrlById = new Map();
+  const usedCoverUrls = new Set();
+
+  for (const person of filtered) {
+    const coverUrl = typeof person.coverImageUrl === 'string' ? person.coverImageUrl : null;
+
+    if (coverUrl && !usedCoverUrls.has(coverUrl)) {
+      visibleCoverUrlById.set(person.id, coverUrl);
+      usedCoverUrls.add(coverUrl);
+      continue;
+    }
+
+    visibleCoverUrlById.set(person.id, null);
+  }
 
   const selectedSchools = selected.map((id) => colleges.find((college) => college.id === id)?.name).filter(Boolean);
   const selectedSchoolSummary = selectedSchools.length > 0 ? selectedSchools.join(' · ') : 'No selected schools yet';
@@ -136,6 +154,7 @@ export default function Network({
         setHasMatchProfile(true);
       }
       setFriendFeed(Array.isArray(data.items) ? data.items : []);
+      setSavedFriends(Array.isArray(data.savedProfileIds) ? data.savedProfileIds : []);
     } catch (refreshError) {
       console.error('Failed to refresh friend feed', refreshError);
       setError('Could not refresh your matches right now.');
@@ -260,7 +279,8 @@ export default function Network({
             {filtered.map((p) => (
               (() => {
                 const compatibilityColor = getCompatibilityColor(p.compat);
-                const hasCover = Boolean(p.coverImageUrl) && !failedCovers[p.id];
+                const visibleCoverUrl = visibleCoverUrlById.get(p.id);
+                const hasCover = Boolean(visibleCoverUrl) && !failedCovers[p.id];
 
                 return (
               <div
@@ -272,7 +292,7 @@ export default function Network({
                   <>
                     <img
                       className="network-card-bg"
-                      src={p.coverImageUrl}
+                      src={visibleCoverUrl}
                       alt=""
                       aria-hidden="true"
                       onError={() => setFailedCovers((current) => ({ ...current, [p.id]: true }))}
@@ -283,7 +303,7 @@ export default function Network({
                 <div className="network-card-body">
                   <div className="network-card-top">
                     <div className="network-card-avatar">
-                      <MonoAvatar initials={p.initials} emoji={p.avatarEmoji} size={72} />
+                      <MonoAvatar initials={p.initials} emoji={p.avatarEmoji} src={p.avatarUrl} size={72} />
                       <span className="network-card-compat" style={{ color: compatibilityColor }}>{p.compat}%</span>
                     </div>
                     <div className="network-card-actions">
@@ -301,6 +321,15 @@ export default function Network({
                       >
                         <Icon.arrowR size={14} />
                       </button>
+                      {!isDemoMode ? (
+                        <button
+                          className={'icon-btn' + (hasCover ? ' network-card-icon' : '')}
+                          title="Hide"
+                          onClick={(e) => { e.stopPropagation(); onHideFriend(p.id); }}
+                        >
+                          <Icon.x size={14} />
+                        </button>
+                      ) : null}
                     </div>
                   </div>
                     <div className="network-card-bottom">
@@ -308,6 +337,7 @@ export default function Network({
                         <h4>{p.name}</h4>
                         <span className="network-card-school">
                           {p.school.replace(' (committed)', '').replace(' (interested)', '')}
+                          {p.demoLabel ? <span className="network-card-demo">{p.demoLabel}</span> : null}
                         </span>
                         <span className="network-card-origin">{getProfileMeta(p)} · {p.origin}</span>
                       </div>

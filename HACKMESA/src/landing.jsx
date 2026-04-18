@@ -95,6 +95,7 @@ export default function Landing({ onNav }) {
       <Nav route="landing" onNav={onNav} showLogin />
 
       <div className="landing-hero-wrap">
+        <div className="landing-sky-layer" aria-hidden="true" />
         <div className="bubble-field">
           {showCanvas ? <CreationOfAdamCanvas /> : null}
         </div>

@@ -247,6 +247,7 @@ a {
   border: 1px solid var(--line-2);
   background: var(--white);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .ph {
@@ -279,17 +280,28 @@ a {
   justify-content: center;
 }
 
-.bubble-field {
+.landing-sky-layer {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-image: url('/sky.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  transform: scale(1.03);
+}
+
+.bubble-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
   overflow: hidden;
 }
 
 .landing-hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
   max-width: 760px;
   padding: 0 48px;
@@ -1847,9 +1859,21 @@ a {
 }
 
 .network-card-school {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
   color: var(--ink-2);
   font-weight: 500;
+}
+
+.network-card-demo {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
 }
 
 .network-card-origin {
@@ -2043,12 +2067,23 @@ a {
 
 .profile-school-badge {
   margin-top: 14px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 14px;
   border: 1px solid var(--ink);
   font-size: 13px;
   font-weight: 500;
   color: var(--ink);
+}
+
+.profile-demo-pill {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
 }
 
 .profile-hero.has-cover .profile-school-badge {
@@ -2159,6 +2194,17 @@ a {
   padding: 24px;
 }
 
+.profile-safety-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.profile-safety-actions .btn {
+  justify-content: center;
+}
+
 .profile-editor {
   border: 1px solid var(--line);
   background: var(--white);
@@ -2169,6 +2215,58 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
+}
+
+.profile-media-card {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 16px;
+}
+
+.profile-media-card-wide {
+  grid-column: span 2;
+}
+
+.profile-avatar-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-media-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.profile-cover-preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background: var(--white);
+  overflow: hidden;
+}
+
+.profile-cover-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-cover-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mute);
+  font-size: 14px;
+}
+
+.profile-hidden-input {
+  display: none;
 }
 
 .profile-editor .field input,

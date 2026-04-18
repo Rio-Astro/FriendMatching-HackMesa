@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { QUIZ } from './data';
-import { Icon, Nav } from './shared';
+import { Icon, MonoAvatar, Nav } from './shared';
 
 const INTEREST_OPTIONS = ['creative writing', 'film photography', 'music', 'running', 'hiking', 'gaming', 'cooking', 'museums', 'soccer', 'podcasts', 'research', 'coffee shops'];
 const GOAL_OPTIONS = ['find a study partner', 'make a close friend group', 'join a campus org', 'find weekend plans', 'build a creative crew', 'meet future roommates'];
@@ -14,6 +14,8 @@ function createEmptyProfile(selectedSchoolIds) {
     major: '',
     bio: '',
     homeState: '',
+    avatarUrl: null,
+    coverImageUrl: null,
     profileStatus: 'active',
     interests: [],
     goals: [],
@@ -21,11 +23,48 @@ function createEmptyProfile(selectedSchoolIds) {
   };
 }
 
+async function fileToDataUrl(file, { width, height, quality }) {
+  const objectUrl = URL.createObjectURL(file);
+
+  try {
+    const image = await new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = objectUrl;
+    });
+
+    const canvas = document.createElement('canvas');
+    const sourceWidth = image.naturalWidth || image.width;
+    const sourceHeight = image.naturalHeight || image.height;
+    const scale = Math.min(1, width / sourceWidth, height / sourceHeight);
+    const targetWidth = Math.max(1, Math.round(sourceWidth * scale));
+    const targetHeight = Math.max(1, Math.round(sourceHeight * scale));
+
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+
+    const context = canvas.getContext('2d');
+
+    if (!context) {
+      throw new Error('Could not prepare image upload preview.');
+    }
+
+    context.drawImage(image, 0, 0, targetWidth, targetHeight);
+
+    return canvas.toDataURL('image/webp', quality);
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
 export default function MyProfile({ onNav, isDemoMode, selected, colleges, matchProfile, setMatchProfile, hasMatchProfile, setHasMatchProfile, setFriendFeed }) {
   const [loading, setLoading] = useState(!isDemoMode);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [profileForm, setProfileForm] = useState(createEmptyProfile(selected));
+  const avatarInputRef = useRef(null);
+  const coverInputRef = useRef(null);
 
   useEffect(() => {
     if (isDemoMode) {
@@ -92,6 +131,27 @@ export default function MyProfile({ onNav, isDemoMode, selected, colleges, match
 
   const updateProfileField = (field, value) => {
     setProfileForm((current) => ({ ...current, [field]: value }));
+  };
+
+  const handleImageUpload = async (field, file, options) => {
+    if (!file) {
+      return;
+    }
+
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file.');
+      return;
+    }
+
+    setError('');
+
+    try {
+      const dataUrl = await fileToDataUrl(file, options);
+      updateProfileField(field, dataUrl);
+    } catch (uploadError) {
+      console.error('Failed to process uploaded image', uploadError);
+      setError('Could not process that image. Try a different file.');
+    }
   };
 
   const toggleMultiSelect = (field, value, limit) => {
@@ -181,6 +241,62 @@ export default function MyProfile({ onNav, isDemoMode, selected, colleges, match
             {!loading ? (
               <>
                 <div className="profile-editor-grid">
+                  <div className="profile-media-card">
+                    <label className="profile-editor-label">Profile photo</label>
+                    <div className="profile-avatar-preview-row">
+                      <MonoAvatar initials={profileForm.displayName?.slice(0, 2).toUpperCase() || 'ME'} src={profileForm.avatarUrl} size={88} />
+                      <div className="profile-media-actions">
+                        <button className="btn ghost sm" type="button" onClick={() => avatarInputRef.current?.click()}>
+                          Upload PFP
+                        </button>
+                        {profileForm.avatarUrl ? (
+                          <button className="btn ghost sm" type="button" onClick={() => updateProfileField('avatarUrl', null)}>
+                            Remove
+                          </button>
+                        ) : null}
+                      </div>
+                    </div>
+                    <input
+                      ref={avatarInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="profile-hidden-input"
+                      onChange={(event) => {
+                        const file = event.target.files?.[0];
+                        void handleImageUpload('avatarUrl', file, { width: 360, height: 360, quality: 0.82 });
+                        event.target.value = '';
+                      }}
+                    />
+                  </div>
+
+                  <div className="profile-media-card profile-media-card-wide">
+                    <label className="profile-editor-label">Background image</label>
+                    <div className="profile-cover-preview">
+                      {profileForm.coverImageUrl ? <img src={profileForm.coverImageUrl} alt="Background preview" /> : <div className="profile-cover-empty">No background selected</div>}
+                    </div>
+                    <div className="profile-media-actions">
+                      <button className="btn ghost sm" type="button" onClick={() => coverInputRef.current?.click()}>
+                        Upload background
+                      </button>
+                      {profileForm.coverImageUrl ? (
+                        <button className="btn ghost sm" type="button" onClick={() => updateProfileField('coverImageUrl', null)}>
+                          Remove
+                        </button>
+                      ) : null}
+                    </div>
+                    <input
+                      ref={coverInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="profile-hidden-input"
+                      onChange={(event) => {
+                        const file = event.target.files?.[0];
+                        void handleImageUpload('coverImageUrl', file, { width: 1400, height: 900, quality: 0.74 });
+                        event.target.value = '';
+                      }}
+                    />
+                  </div>
+
                   <div className="field">
                     <label>Display name</label>
                     <input value={profileForm.displayName} onChange={(event) => updateProfileField('displayName', event.target.value)} />

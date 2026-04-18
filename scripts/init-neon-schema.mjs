@@ -117,6 +117,7 @@ create table if not exists quiz_results (
 create table if not exists match_profiles (
   id uuid primary key default gen_random_uuid(),
   clerk_user_id text unique references user_profiles(clerk_user_id) on delete cascade,
+  demo_key text,
   display_name text not null,
   graduation_year integer,
   major text not null default '',
@@ -124,12 +125,23 @@ create table if not exists match_profiles (
   home_state text not null default '',
   avatar_type text not null default 'initials',
   avatar_url text,
+  avatar_emoji text,
+  cover_image_url text,
   is_demo boolean not null default false,
   demo_label text,
   profile_status text not null default 'active',
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table if exists match_profiles
+  add column if not exists demo_key text;
+
+alter table if exists match_profiles
+  add column if not exists avatar_emoji text;
+
+alter table if exists match_profiles
+  add column if not exists cover_image_url text;
 
 create table if not exists match_profile_interests (
   profile_id uuid not null references match_profiles(id) on delete cascade,
@@ -166,16 +178,29 @@ create table if not exists compatibility_edges (
   primary key (viewer_profile_id, candidate_profile_id)
 );
 
+create table if not exists friend_actions (
+  viewer_profile_id uuid not null references match_profiles(id) on delete cascade,
+  target_profile_id uuid not null references match_profiles(id) on delete cascade,
+  action_type text not null,
+  is_active boolean not null default true,
+  metadata_json jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  primary key (viewer_profile_id, target_profile_id, action_type)
+);
+
 create index if not exists schools_active_idx on schools (active);
 create index if not exists schools_slug_idx on schools (slug);
 create index if not exists school_vibe_cards_school_id_idx on school_vibe_cards (school_id);
 create index if not exists saved_schools_school_id_idx on saved_schools (school_id);
 create index if not exists quiz_results_clerk_user_id_idx on quiz_results (clerk_user_id);
 create index if not exists match_profiles_clerk_user_id_idx on match_profiles (clerk_user_id);
+create unique index if not exists match_profiles_demo_key_uidx on match_profiles (demo_key) where demo_key is not null;
 create index if not exists match_profile_interests_profile_id_idx on match_profile_interests (profile_id);
 create index if not exists match_profile_goals_profile_id_idx on match_profile_goals (profile_id);
 create index if not exists match_profile_colleges_profile_id_idx on match_profile_colleges (profile_id);
 create index if not exists compatibility_edges_score_idx on compatibility_edges (viewer_profile_id, score desc);
+create index if not exists friend_actions_viewer_action_idx on friend_actions (viewer_profile_id, action_type, is_active);
 `;
 
 try {

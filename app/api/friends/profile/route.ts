@@ -5,6 +5,26 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import { getCurrentMatchProfileDraft, upsertCurrentMatchProfile } from '@/lib/friends';
 import type { MatchProfileDraft } from '@/lib/types';
 
+function normalizeImageValue(value: unknown) {
+  if (typeof value !== 'string') {
+    return null;
+  }
+
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  const isAllowed = trimmed.startsWith('data:image/') || trimmed.startsWith('https://') || trimmed.startsWith('http://');
+
+  if (!isAllowed || trimmed.length > 2_500_000) {
+    return null;
+  }
+
+  return trimmed;
+}
+
 function parseDraft(value: unknown): MatchProfileDraft | null {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
     return null;
@@ -20,6 +40,8 @@ function parseDraft(value: unknown): MatchProfileDraft | null {
   const major = typeof candidate.major === 'string' ? candidate.major.trim() : '';
   const bio = typeof candidate.bio === 'string' ? candidate.bio.trim() : '';
   const homeState = typeof candidate.homeState === 'string' ? candidate.homeState.trim() : '';
+  const avatarUrl = normalizeImageValue(candidate.avatarUrl);
+  const coverImageUrl = normalizeImageValue(candidate.coverImageUrl);
   const profileStatus = candidate.profileStatus === 'paused' ? 'paused' : 'active';
   const interests = Array.isArray(candidate.interests)
     ? candidate.interests.filter((item): item is string => typeof item === 'string')
@@ -41,6 +63,8 @@ function parseDraft(value: unknown): MatchProfileDraft | null {
     major,
     bio,
     homeState,
+    avatarUrl,
+    coverImageUrl,
     profileStatus,
     interests: interests.slice(0, 5),
     goals: goals.slice(0, 3),
@@ -60,7 +84,6 @@ async function getAuthenticatedUser() {
   return {
     userId,
     displayName: user?.fullName || user?.firstName || user?.primaryEmailAddress?.emailAddress || null,
-    avatarUrl: user?.imageUrl || null,
   };
 }
 
@@ -99,7 +122,6 @@ export async function POST(request: Request) {
     const result = await upsertCurrentMatchProfile(
       sessionUser.userId,
       sessionUser.displayName,
-      sessionUser.avatarUrl,
       draft,
     );
 

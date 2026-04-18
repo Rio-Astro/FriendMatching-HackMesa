@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { useUser } from '@clerk/nextjs';
 
-import type { FriendCard, MatchProfileDraft, MatchedSchool, NavItem, QuizAnswers, RouteName } from '@/lib/types';
+import type { FriendActionType, FriendCard, FriendFeedResult, MatchProfileDraft, MatchedSchool, NavItem, QuizAnswers, RouteName } from '@/lib/types';
 
 import Auth from './auth';
 import { UNIVERSITIES } from './data';
@@ -253,8 +253,33 @@ export default function MesaApp() {
       if (Array.isArray(data.items)) {
         setFriendFeed(data.items);
       }
+      if (Array.isArray(data.savedProfileIds)) {
+        setSavedFriends(data.savedProfileIds);
+      }
     } catch (error) {
       console.error('Failed to recompute friend feed', error);
+    }
+  };
+
+  const applyFriendAction = async (targetProfileId: string, actionType: FriendActionType, isActive = true) => {
+    const response = await fetch('/api/friends/actions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ targetProfileId, actionType, isActive }),
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    const data = (await response.json()) as FriendFeedResult;
+
+    if (Array.isArray(data.items)) {
+      setFriendFeed(data.items);
+    }
+
+    if (Array.isArray(data.savedProfileIds)) {
+      setSavedFriends(data.savedProfileIds);
     }
   };
 
@@ -344,9 +369,40 @@ export default function MesaApp() {
   };
 
   const toggleSaveFriend = (id: string) => {
-    setSavedFriends((current) =>
-      current.includes(id) ? current.filter((value) => value !== id) : [...current, id],
-    );
+    setSavedFriends((current) => {
+      const wasSaved = current.includes(id);
+      const nextValue = wasSaved ? current.filter((value) => value !== id) : [...current, id];
+
+      if (isSignedIn && !isDemoMode) {
+        void applyFriendAction(id, 'save', !wasSaved).catch((error) => {
+          console.error('Failed to persist saved friend action', error);
+          setSavedFriends(current);
+        });
+      }
+
+      return nextValue;
+    });
+  };
+
+  const handleFriendSafetyAction = async (id: string, actionType: Exclude<FriendActionType, 'save'>) => {
+    if (isDemoMode || !isSignedIn) {
+      setFriendFeed((current) => current.filter((item) => item.id !== id));
+      setSavedFriends((current) => current.filter((value) => value !== id));
+      if (viewProfileId === id) {
+        setRoute('network');
+      }
+      return;
+    }
+
+    try {
+      await applyFriendAction(id, actionType, true);
+      if (viewProfileId === id) {
+        setViewProfileId(null);
+        setRoute('network');
+      }
+    } catch (error) {
+      console.error(`Failed to ${actionType} friend`, error);
+    }
   };
 
   let content;
@@ -411,7 +467,9 @@ export default function MesaApp() {
           selected={selected}
           colleges={colleges}
           savedFriends={savedFriends}
+          setSavedFriends={setSavedFriends}
           toggleSaveFriend={toggleSaveFriend}
+          onHideFriend={(id: string) => { void handleFriendSafetyAction(id, 'hide'); }}
           friendFeed={friendFeed}
           setFriendFeed={setFriendFeed}
           setMatchProfile={setMatchProfile}
@@ -445,6 +503,9 @@ export default function MesaApp() {
           friendFeed={friendFeed}
           savedFriends={savedFriends}
           toggleSaveFriend={toggleSaveFriend}
+          onHideFriend={(id: string) => { void handleFriendSafetyAction(id, 'hide'); }}
+          onBlockFriend={(id: string) => { void handleFriendSafetyAction(id, 'block'); }}
+          onReportFriend={(id: string) => { void handleFriendSafetyAction(id, 'report'); }}
         />
       );
       break;

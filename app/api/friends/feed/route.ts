@@ -12,8 +12,8 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const items = await getFriendFeedForClerkUser(userId);
-    return NextResponse.json({ items });
+    const result = await getFriendFeedForClerkUser(userId);
+    return NextResponse.json(result);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown friends feed error';
     console.error('Friends feed GET error:', error);

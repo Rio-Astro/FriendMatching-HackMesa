@@ -65,6 +65,7 @@ export type FriendCard = {
   avatarUrl?: string | null;
   coverImageUrl?: string | null;
   isDemo?: boolean;
+  demoLabel?: 'Demo' | 'AI' | null;
   school: string;
   origin: string;
   bio: string;
@@ -76,6 +77,13 @@ export type FriendCard = {
   selectedSchools?: string[];
   tone: 'sage' | 'sand' | 'clay';
 };
+
+export type FriendFeedResult = {
+  items: FriendCard[];
+  savedProfileIds: string[];
+};
+
+export type FriendActionType = 'save' | 'hide' | 'block' | 'report';
 
 export type PostItem = {
   id: string;
@@ -101,6 +109,7 @@ export type MatchProfile = {
   homeState: string;
   avatarType: 'initials' | 'uploaded' | 'demo';
   avatarUrl?: string | null;
+  coverImageUrl?: string | null;
   isDemo: boolean;
   demoLabel?: 'Demo' | 'AI' | null;
   profileStatus: 'active' | 'paused' | 'hidden';
@@ -116,6 +125,8 @@ export type MatchProfileDraft = {
   major: string;
   bio: string;
   homeState: string;
+  avatarUrl?: string | null;
+  coverImageUrl?: string | null;
   profileStatus: 'active' | 'paused';
   interests: string[];
   goals: string[];

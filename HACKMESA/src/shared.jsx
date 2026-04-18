@@ -48,8 +48,7 @@ export function SchoolImage({ src, alt, label, height = 160 }) {
 export function Logo({ onNav, small }) {
   return (
     <a href="#" className="brand" onClick={(e)=>{ e.preventDefault(); onNav('landing'); }}>
-      <span className="brand-mark">mesa<em>.</em></span>
-      {!small && <span className="brand-sub">college and people, matched</span>}
+      <span className="brand-mark">College Compass</span>
     </a>
   );
 }

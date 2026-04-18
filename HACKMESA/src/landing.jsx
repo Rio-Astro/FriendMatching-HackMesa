@@ -139,7 +139,6 @@ export default function Landing({ onNav }) {
         </div>
 
         <div className="landing-hero-content">
-          <span className="eyebrow">A calmer way to pick your college</span>
           <h1 className={isDone ? 'typewriter-done' : 'typewriter-cursor'}>
             {titleParts.map((part, i) => (
               <Fragment key={i}>
@@ -148,9 +147,7 @@ export default function Landing({ onNav }) {
               </Fragment>
             ))}
           </h1>
-          <p className={'lede' + (isDone ? ' lede-enter' : '')}>
-            Mesa is a quiet place to figure out where you're going and who you want to be there with. Take a short quiz, get real matches, meet your future classmates before move-in.
-          </p>
+          <p className={'lede' + (isDone ? ' lede-enter' : '')}>A calmer way to pick your college</p>
           <div className={'ctas' + (isDone ? ' ctas-enter' : '')}>
             <button className="btn" onClick={() => onNav('quiz')}>
               Get matched <Icon.arrowR size={14}/>

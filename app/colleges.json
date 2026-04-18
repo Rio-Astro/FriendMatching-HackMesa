@@ -3763,5 +3763,108 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
     "bio": "Mt. San Antonio College offers a large · 28k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u_caltech",
+    "name": "California Institute of Technology",
+    "state": "Pasadena, CA",
+    "size": "Small · 1k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "tech",
+      "close-knit",
+      "research"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Caltech_Beckman_Auditorium.jpg",
+    "bio": "Caltech is a world-renowned science and engineering institute that marshals some of the world's brightest minds.",
+    "pitch": "If you want to solve the most difficult problems in science and engineering alongside Nobel laureates, Caltech is your absolute best match. With a 3:1 student-to-faculty ratio, you will be deeply immersed in groundbreaking research from day one. You will also experience the celebrated House system, living in a brilliant, tight-knit residential community."
+  },
+  {
+    "id": "u_howard",
+    "name": "Howard University",
+    "state": "Washington, DC",
+    "size": "Mid · 13k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "historic",
+      "spirited",
+      "close-knit",
+      "hbcu",
+      "cultural"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Founders_Library_at_Howard_University.jpg",
+    "bio": "A historically Black research university in Washington, D.C.",
+    "pitch": "Howard offers an unparalleled HBCU experience in the nation's capital, blending rich historical legacy with rigorous academics and a deeply empowering, spirited community."
+  },
+  {
+    "id": "u_spelman",
+    "name": "Spelman College",
+    "state": "Atlanta, GA",
+    "size": "Small · 2k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "historic",
+      "close-knit",
+      "hbcu",
+      "womens-college"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Spelman_College_Atlanta_GA.jpg",
+    "bio": "A historically Black liberal arts college for women in Atlanta.",
+    "pitch": "Spelman provides an intensely supportive sisterhood and a legacy of empowering Black women to become global leaders, surrounded by a culturally vibrant campus network."
+  },
+  {
+    "id": "u_morehouse",
+    "name": "Morehouse College",
+    "state": "Atlanta, GA",
+    "size": "Small · 2k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "historic",
+      "spirited",
+      "hbcu",
+      "mens-college"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Morehouse_College_Atlanta_GA.jpg",
+    "bio": "A historically Black liberal arts college for men in Atlanta.",
+    "pitch": "Known for producing iconic leaders like MLK Jr., Morehouse cultivates intellectual rigor and brotherhood deeply rooted in character development and a historic legacy."
+  },
+  {
+    "id": "u_famu",
+    "name": "Florida A&M University",
+    "state": "Tallahassee, FL",
+    "size": "Mid · 10k",
+    "tuition": "$$",
+    "band": "low",
+    "tags": [
+      "spirited",
+      "hbcu",
+      "public",
+      "research"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Lee_Hall_FAMU.jpg",
+    "bio": "A public, historically Black land-grant university in Tallahassee.",
+    "pitch": "FAMU shines with its famous 'Marching 100' band, an intensely spirited campus culture, and incredibly strong, upwardly-mobile professional degree programs."
+  },
+  {
+    "id": "u_hampton",
+    "name": "Hampton University",
+    "state": "Hampton, VA",
+    "size": "Small · 3k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "coastal",
+      "historic",
+      "hbcu",
+      "close-knit"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Hampton_University_VA.jpg",
+    "bio": "A historically Black university located in coastal Virginia.",
+    "pitch": "Hampton affords a beautiful waterfront campus combined with a prestigious history of academic success, forging a close-knit, highly ambitious 'Home by the Sea'."
   }
 ]

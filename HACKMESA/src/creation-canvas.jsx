@@ -21,6 +21,10 @@ export default function CreationOfAdamCanvas() {
 
     const mountRenderer = () => {
       const { width, height } = container.getBoundingClientRect();
+      if (width < 1 || height < 1) {
+        return;
+      }
+
       canvas.width = Math.max(1, Math.floor(width));
       canvas.height = Math.max(1, Math.floor(height));
 

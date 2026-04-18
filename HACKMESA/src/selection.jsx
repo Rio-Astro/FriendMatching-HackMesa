@@ -10,7 +10,7 @@ export default function Selection({ onNav, selected, toggleSelect, colleges }) {
       <div className="selection">
         <span className="eyebrow">Step 2 of 2 · Narrow the list</span>
         <h1>Pick up to three schools you're serious about.</h1>
-        <p className="sub">Your picks shape the friend recommendations next. You can change them anytime.</p>
+        <p className="sub">Your picks shape your network recommendations next. You can change them anytime.</p>
 
         <div className="sel-grid">
           {collegeList.slice(0, 6).map((u) => {
@@ -47,8 +47,8 @@ export default function Selection({ onNav, selected, toggleSelect, colleges }) {
             <button className="btn ghost sm" onClick={() => onNav('results')}><Icon.arrowL size={12}/> Back to matches</button>
             <button className="btn" disabled={!can}
               style={!can ? { opacity: .35, cursor: 'not-allowed' } : {}}
-              onClick={() => onNav('friends')}>
-              Meet people going there <Icon.arrowR size={14}/>
+              onClick={() => onNav('network')}>
+              See your network <Icon.arrowR size={14}/>
             </button>
           </div>
         </div>

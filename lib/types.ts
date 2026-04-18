@@ -4,7 +4,6 @@ export type RouteName =
   | 'quiz'
   | 'results'
   | 'selection'
-  | 'friends'
   | 'posts'
   | 'network'
   | 'profile';

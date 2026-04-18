@@ -8,7 +8,6 @@ import type { MatchedSchool, NavItem, QuizAnswers, RouteName } from '@/lib/types
 
 import Auth from './auth';
 import { UNIVERSITIES } from './data';
-import Friends from './friends';
 import Landing from './landing';
 import { NavigationProvider } from './navigation-context';
 import Network from './network';
@@ -31,7 +30,7 @@ function getFallbackRoute(hasAuthAccess: boolean, hasTakenQuiz: boolean, hasSele
     return 'selection';
   }
 
-  return 'friends';
+  return 'network';
 }
 
 function getNavItems(hasAuthAccess: boolean, hasTakenQuiz: boolean, hasSelectedSchools: boolean): NavItem[] {
@@ -44,7 +43,7 @@ function getNavItems(hasAuthAccess: boolean, hasTakenQuiz: boolean, hasSelectedS
   items.push({ id: 'quiz', label: 'Quiz' }, { id: 'results', label: 'Matches' });
 
   if (hasSelectedSchools) {
-    items.push({ id: 'friends', label: 'Friends' }, { id: 'network', label: 'Network' });
+    items.push({ id: 'network', label: 'Network' });
   }
 
   return items;
@@ -58,7 +57,6 @@ export default function MesaApp() {
   const [saved, setSaved] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
   const [savedFriends, setSavedFriends] = useState<string[]>([]);
-  const [variant, setVariant] = useState<'hinge' | 'polaroid' | 'structured'>('hinge');
   const [viewProfileId, setViewProfileId] = useState<string | null>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
   const [routeLoaded, setRouteLoaded] = useState(false);
@@ -99,11 +97,7 @@ export default function MesaApp() {
       return;
     }
 
-    const allowedRoutes = new Set<RouteName>(['landing']);
-
-    if (!hasAuthAccess) {
-      allowedRoutes.add('auth');
-    }
+    const allowedRoutes = new Set<RouteName>(['landing', 'auth']);
 
     if (hasAuthAccess) {
       allowedRoutes.add('quiz');
@@ -115,7 +109,6 @@ export default function MesaApp() {
     }
 
     if (hasSelectedSchools) {
-      allowedRoutes.add('friends');
       allowedRoutes.add('network');
       allowedRoutes.add('posts');
 
@@ -134,12 +127,6 @@ export default function MesaApp() {
       setIsDemoMode(false);
     }
   }, [isDemoMode, isSignedIn]);
-
-  useEffect(() => {
-    if (route === 'friends' && selected.length === 0 && colleges.length >= 2) {
-      setSelected([colleges[0].id, colleges[1].id]);
-    }
-  }, [route, selected.length, colleges]);
 
   const toggleSave = (id: string) => {
     setSaved((current) =>
@@ -189,19 +176,6 @@ export default function MesaApp() {
           selected={selected}
           toggleSelect={toggleSelect}
           colleges={colleges}
-        />
-      );
-      break;
-    case 'friends':
-      content = (
-        <Friends
-          onNav={setRoute}
-          selected={selected}
-          colleges={colleges}
-          variant={variant}
-          setVariant={setVariant}
-          savedFriends={savedFriends}
-          toggleSaveFriend={toggleSaveFriend}
         />
       );
       break;

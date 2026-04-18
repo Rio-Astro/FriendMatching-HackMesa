@@ -14,8 +14,9 @@ function useTypewriter(text, speed, delay) {
 
   useEffect(() => {
     if (!started || charIndex >= text.length) return;
+    const nextStep = text[charIndex] === '\n' ? 2 : 1;
     const timer = setTimeout(
-      () => setCharIndex(prev => prev + 1),
+      () => setCharIndex(prev => Math.min(text.length, prev + nextStep)),
       speed
     );
     return () => clearTimeout(timer);
@@ -29,7 +30,7 @@ function useTypewriter(text, speed, delay) {
 
 export default function Landing({ onNav }) {
   const titleText = "Find your college.\nFind your people.";
-  const { displayed, isDone } = useTypewriter(titleText, 28, 120);
+  const { displayed, isDone } = useTypewriter(titleText, 18, 60);
 
   const titleParts = displayed.split('\n');
 

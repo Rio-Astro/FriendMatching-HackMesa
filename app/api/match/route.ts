@@ -81,8 +81,8 @@ export async function POST(request: Request) {
       return a.name.localeCompare(b.name);
     });
 
-    // Return top 8
-    return NextResponse.json(matches.slice(0, 8));
+    // Return a larger deterministic set so the results screen can filter/search beyond the top 8.
+    return NextResponse.json(matches.slice(0, 100));
 
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown match error';

@@ -20,22 +20,41 @@ type ResultsProps = {
   setColleges: Dispatch<SetStateAction<MatchedSchool[]>>;
 };
 
-const CONFETTI_PIECES = Array.from({ length: 56 }, (_, index) => ({
-  id: index,
-  left: (index * 17) % 100,
-  delay: (index % 12) * 0.1,
-  duration: 3.2 + (index % 6) * 0.24,
-  rotation: (index * 29) % 360,
-  color: `hsl(${(index * 31) % 360} 88% 62%)`,
-}));
+type ConfettiPiece = {
+  id: number;
+  left: number;
+  top: number;
+  delay: number;
+  duration: number;
+  rotation: number;
+  width: number;
+  height: number;
+  color: string;
+};
+
+function createConfettiPieces(): ConfettiPiece[] {
+  return Array.from({ length: 56 }, (_, index) => ({
+    id: index,
+    left: Math.random() * 100,
+    top: -18 + Math.random() * 14,
+    delay: Math.random() * 1.2,
+    duration: 3 + Math.random() * 1.8,
+    rotation: Math.random() * 360,
+    width: 8 + Math.random() * 8,
+    height: 14 + Math.random() * 12,
+    color: `hsl(${Math.round(Math.random() * 360)} 88% 62%)`,
+  }));
+}
 
 export default function Results({ onNav, saved, toggleSave, answers, colleges, setColleges }: ResultsProps) {
   const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [popupCollege, setPopupCollege] = useState<MatchedSchool | null>(null);
   const [pitch, setPitch] = useState<string | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [hasCelebrated, setHasCelebrated] = useState(false);
+  const [confettiPieces, setConfettiPieces] = useState<ConfettiPiece[]>(() => createConfettiPieces());
 
   const openPitch = async (college: MatchedSchool) => {
     setPopupCollege(college);
@@ -92,6 +111,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
       return;
     }
 
+    setConfettiPieces(createConfettiPieces());
     setShowConfetti(true);
     setHasCelebrated(true);
 
@@ -103,22 +123,31 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
   }, [answers, colleges.length, hasCelebrated, loading]);
 
   const collegeList = colleges?.length ? colleges : UNIVERSITIES;
-  const filters: Array<{ id: 'all' | 'high' | 'small' | 'outdoor' | 'affordable'; label: string }> = [
+  const filters: Array<{ id: string; label: string }> = [
     { id: 'all', label: 'All matches' },
     { id: 'high', label: 'Best fit (90+)' },
+    { id: 'uc', label: 'UC System' },
+    { id: 'csu', label: 'CSU System' },
+    { id: 'tx', label: 'Texas Systems' },
     { id: 'small', label: 'Small campus' },
     { id: 'outdoor', label: 'Outdoorsy' },
     { id: 'affordable', label: 'Affordable' },
   ];
 
   const list = collegeList.filter((u) => {
-    if (filter === 'all') return true;
-    if (filter === 'high') return u.score >= 90;
-    if (filter === 'small') return u.size.includes('Small');
-    if (filter === 'outdoor') return u.tags.some(t => /outdoor|nature|coastal/i.test(t));
-    if (filter === 'affordable') return u.band === 'low' || u.band === 'mid';
+    if (filter === 'high' && u.score < 90) return false;
+    if (filter === 'small' && !u.size.includes('Small')) return false;
+    if (filter === 'outdoor' && !u.tags.some((t) => /outdoor|nature|coastal/i.test(t))) return false;
+    if (filter === 'affordable' && !(u.band === 'low' || u.band === 'mid')) return false;
+    if (filter === 'uc' && !(u.name.startsWith('UC ') || u.name === 'UCLA' || u.name.toLowerCase().includes('university of california'))) return false;
+    if (filter === 'csu' && !(u.name.startsWith('CSU ') || u.name.startsWith('Cal Poly') || (u.name.includes('State') && u.state.includes('CA')))) return false;
+    if (filter === 'tx' && !u.state.includes('TX')) return false;
+    if (search.trim() && !u.name.toLowerCase().includes(search.toLowerCase())) return false;
+
     return true;
   });
+
+  const visibleList = search.trim() ? list : list.slice(0, 8);
 
   return (
     <div className="page" data-screen-label="04 Results">
@@ -126,12 +155,15 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
 
       {showConfetti ? (
         <div className="confetti-rain" aria-hidden="true">
-          {CONFETTI_PIECES.map((piece) => (
+          {confettiPieces.map((piece) => (
             <span
               key={piece.id}
               className="confetti-piece"
               style={{
                 left: `${piece.left}%`,
+                top: `${piece.top}vh`,
+                width: piece.width,
+                height: piece.height,
                 background: piece.color,
                 animationDelay: `${piece.delay}s`,
                 animationDuration: `${piece.duration}s`,
@@ -149,7 +181,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
             <h1>Congratulations!</h1>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
-            <span className="mono-tag">{saved.length} saved · {list.length} shown</span>
+            <span className="mono-tag">{saved.length} saved · {visibleList.length} shown</span>
             <button className="btn ghost sm" onClick={() => onNav('quiz')}>Retake quiz</button>
           </div>
         </div>
@@ -158,6 +190,13 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
           {filters.map(f => (
             <button key={f.id} className={'chip ' + (filter === f.id ? 'on' : '')} onClick={() => setFilter(f.id)}>{f.label}</button>
           ))}
+          <input
+            type="text"
+            placeholder="Search specific colleges..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ padding: '8px 16px', borderRadius: 20, border: '1px solid var(--line)', outline: 'none', fontFamily: 'inherit', fontSize: 14, flex: 1, minWidth: 200, maxWidth: 300 }}
+          />
         </div>
 
         {loading ? (
@@ -166,7 +205,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
           </div>
         ) : (
           <div className="result-list">
-            {list.map((u, idx) => (
+            {visibleList.map((u, idx) => (
                 (() => {
                   const compatibilityColor = getCompatibilityColor(u.score);
 

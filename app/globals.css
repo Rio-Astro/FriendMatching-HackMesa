@@ -68,39 +68,6 @@ a {
   }
 }
 
-@keyframes floatA {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  20%  { transform: translate(60px, -35px) rotate(3deg); }
-  40%  { transform: translate(-20px, -70px) rotate(-2deg); }
-  60%  { transform: translate(-55px, -15px) rotate(4deg); }
-  80%  { transform: translate(25px, 30px) rotate(-1deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes floatB {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  20%  { transform: translate(-50px, 40px) rotate(-3deg); }
-  40%  { transform: translate(30px, 65px) rotate(2deg); }
-  60%  { transform: translate(55px, -25px) rotate(-4deg); }
-  80%  { transform: translate(-35px, -40px) rotate(2.5deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes floatC {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  25%  { transform: translate(-65px, -50px) rotate(3.5deg); }
-  50%  { transform: translate(40px, -20px) rotate(-2.5deg); }
-  75%  { transform: translate(-15px, 55px) rotate(4deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes floatD {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  20%  { transform: translate(45px, 50px) rotate(-2deg); }
-  45%  { transform: translate(-55px, 20px) rotate(3deg); }
-  70%  { transform: translate(20px, -60px) rotate(-3.5deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
 
 @keyframes fadeUp {
   from {
@@ -114,52 +81,6 @@ a {
   }
 }
 
-@keyframes bubbleIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-  }
-
-  100% {
-    opacity: 0.7;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes blobMorphA {
-  0%, 100% { border-radius: 70% 30% 25% 75% / 65% 25% 75% 35%; }
-  20%      { border-radius: 25% 75% 65% 35% / 45% 70% 30% 55%; }
-  40%      { border-radius: 55% 45% 30% 70% / 75% 35% 65% 25%; }
-  60%      { border-radius: 35% 65% 75% 25% / 30% 60% 40% 70%; }
-  80%      { border-radius: 65% 35% 45% 55% / 55% 25% 75% 45%; }
-}
-
-@keyframes blobMorphB {
-  0%, 100% { border-radius: 30% 70% 70% 30% / 75% 25% 65% 35%; }
-  25%      { border-radius: 75% 25% 35% 65% / 30% 55% 45% 70%; }
-  50%      { border-radius: 20% 80% 55% 45% / 65% 40% 70% 30%; }
-  75%      { border-radius: 60% 40% 80% 20% / 35% 30% 55% 75%; }
-}
-
-@keyframes blobMorphC {
-  0%, 100% { border-radius: 80% 20% 40% 60% / 35% 65% 25% 75%; }
-  25%      { border-radius: 25% 75% 60% 40% / 70% 30% 75% 25%; }
-  50%      { border-radius: 60% 40% 20% 80% / 25% 75% 40% 60%; }
-  75%      { border-radius: 40% 60% 75% 25% / 60% 20% 65% 35%; }
-}
-
-@keyframes blobMorphD {
-  0%, 100% { border-radius: 25% 75% 55% 45% / 70% 30% 80% 20%; }
-  20%      { border-radius: 65% 35% 20% 80% / 25% 75% 35% 65%; }
-  40%      { border-radius: 35% 65% 80% 20% / 55% 45% 25% 75%; }
-  60%      { border-radius: 80% 20% 45% 55% / 30% 65% 70% 35%; }
-  80%      { border-radius: 45% 55% 65% 35% / 75% 20% 45% 80%; }
-}
-
-@keyframes blobPulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.07); }
-}
 
 @keyframes slideIn {
   from {
@@ -349,40 +270,7 @@ a {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-}
-
-.bubble {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: transform;
-  opacity: 0;
-  animation-fill-mode: both;
-}
-
-.bubble img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  will-change: border-radius, transform;
   overflow: hidden;
-}
-
-.bubble-label {
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 10px;
-  color: var(--mute);
-  letter-spacing: 0.05em;
-  text-align: center;
-  white-space: nowrap;
 }
 
 .landing-hero-content {
@@ -2075,9 +1963,6 @@ a {
     min-height: 140px;
   }
 
-  .bubble.hide-tablet {
-    display: none;
-  }
 }
 
 @media (max-width: 760px) {
@@ -2121,14 +2006,6 @@ a {
 
   .landing-hero-content .lede {
     font-size: 15px;
-  }
-
-  .bubble {
-    opacity: 0.5 !important;
-  }
-
-  .bubble.hide-mobile {
-    display: none;
   }
 
   .quiz-body {

@@ -44,7 +44,7 @@ function getNavItems(hasAuthAccess: boolean, hasTakenQuiz: boolean, hasSelectedS
   items.push({ id: 'quiz', label: 'Quiz' }, { id: 'results', label: 'Matches' });
 
   if (hasSelectedSchools) {
-    items.push({ id: 'friends', label: 'Friends' });
+    items.push({ id: 'friends', label: 'Friends' }, { id: 'network', label: 'Network' });
   }
 
   return items;

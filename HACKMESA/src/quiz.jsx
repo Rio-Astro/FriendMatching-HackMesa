@@ -3,6 +3,17 @@ import { useEffect, useState } from 'react';
 import { QUIZ } from './data';
 import { Icon, Nav } from './shared';
 
+const FONT_SHOWCASE = [
+  { family: 'var(--font-fraunces), serif', name: 'Fraunces', weight: 350 },
+  { family: 'var(--font-playfair), serif', name: 'Playfair Display', weight: 400 },
+  { family: 'var(--font-dm-serif), serif', name: 'DM Serif Display', weight: 400 },
+  { family: 'var(--font-instrument-serif), serif', name: 'Instrument Serif', weight: 400 },
+  { family: 'var(--font-source-serif), serif', name: 'Source Serif 4', weight: 400 },
+  { family: 'var(--font-sora), sans-serif', name: 'Sora', weight: 500 },
+  { family: 'var(--font-plus-jakarta), sans-serif', name: 'Plus Jakarta Sans', weight: 500 },
+  { family: 'var(--font-manrope), sans-serif', name: 'Manrope', weight: 500 },
+];
+
 export default function Quiz({ onNav, answers, setAnswers }) {
   const [i, setI] = useState(0);
   const [slideKey, setSlideKey] = useState(0);
@@ -96,7 +107,17 @@ export default function Quiz({ onNav, answers, setAnswers }) {
 
         <div className="quiz-body">
           <div className="quiz-slide" key={slideKey}>
-            <h2>{q.title}</h2>
+            {FONT_SHOWCASE[i] && (
+              <div className="quiz-font-label">Font: {FONT_SHOWCASE[i].name}</div>
+            )}
+            {q.eyebrow && <div className="quiz-eyebrow">{q.eyebrow}</div>}
+            <h2
+              style={FONT_SHOWCASE[i] ? {
+                fontFamily: FONT_SHOWCASE[i].family,
+                fontWeight: FONT_SHOWCASE[i].weight,
+              } : undefined}
+            >{q.title}</h2>
+            {q.hint && <p className="quiz-hint">{q.hint}</p>}
             {q.type === 'select' ? (
               <div style={{ width: '100%', maxWidth: 400, margin: '0 auto', textAlign: 'left' }}>
                 <select 

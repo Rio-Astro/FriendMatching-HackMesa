@@ -142,14 +142,14 @@ export default function Landing({ onNav }) {
           <h1 className={isDone ? 'typewriter-done' : 'typewriter-cursor'}>
             {titleParts.map((part, i) => (
               <Fragment key={i}>
-                {i > 0 && part ? <br/> : null}
+                {i > 0 ? <br/> : null}
                 {part}
               </Fragment>
             ))}
           </h1>
           <p className={'lede' + (isDone ? ' lede-enter' : '')}>A calmer way to pick your college</p>
           <div className={'ctas' + (isDone ? ' ctas-enter' : '')}>
-            <button className="btn" onClick={() => onNav('quiz')}>
+            <button className="btn" onClick={() => onNav('auth')}>
               Get matched <Icon.arrowR size={14}/>
             </button>
             <button className="btn ghost" onClick={() => onNav('auth')}>

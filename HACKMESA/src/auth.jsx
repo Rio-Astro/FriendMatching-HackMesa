@@ -16,7 +16,7 @@ export default function Auth({ onNav, onLogin }) {
       return;
     }
 
-    onLogin(user?.firstName || user?.username || 'You');
+    onLogin('clerk');
     onNav('quiz');
   }, [isLoaded, isSignedIn, onLogin, onNav, user]);
 
@@ -30,7 +30,7 @@ export default function Auth({ onNav, onLogin }) {
   };
 
   const continueDemo = () => {
-    onLogin('You');
+    onLogin('demo');
     onNav('quiz');
   };
 

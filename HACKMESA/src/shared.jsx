@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 
+import { UserButton, useUser } from '@clerk/nextjs';
+
+import { useNavigation } from './navigation-context';
+
 function clampScore(score) {
   return Math.max(0, Math.min(100, Number(score) || 0));
 }
@@ -78,14 +82,9 @@ export function Logo({ onNav, small }) {
 }
 
 export function Nav({ route, onNav, showLogin = false }) {
-  const items = [
-    { id: 'landing', label: 'Home' },
-    { id: 'quiz', label: 'Quiz' },
-    { id: 'results', label: 'Matches' },
-    { id: 'friends', label: 'Friends' },
-    { id: 'network', label: 'Network' },
-    { id: 'posts', label: 'Posts' },
-  ];
+  const { items, isDemoMode, showAccountChrome } = useNavigation();
+  const { isSignedIn } = useUser();
+
   return (
     <div className="nav">
       <Logo onNav={onNav} />
@@ -98,17 +97,14 @@ export function Nav({ route, onNav, showLogin = false }) {
         ))}
       </div>
       <div className="nav-right">
-        {showLogin ? (
-          <>
-            <button className="btn ghost sm" onClick={() => onNav('auth')}>Log in</button>
-            <button className="btn sm" onClick={() => onNav('auth')}>Get matched</button>
-          </>
-        ) : (
+        {showAccountChrome && isSignedIn ? (
+          <UserButton />
+        ) : showAccountChrome && isDemoMode ? (
           <>
             <span className="mono-tag" style={{ marginRight: 10 }}>demo mode</span>
             <MonoAvatar initials="YOU" emoji="🧑" size={36} />
           </>
-        )}
+        ) : null}
       </div>
     </div>
   );

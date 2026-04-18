@@ -417,7 +417,11 @@ a {
 }
 
 .typewriter-done::after {
-  display: none;
+  content: '|';
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 300;
+  color: transparent;
+  margin-left: 2px;
 }
 
 .landing-hero-content .lede {

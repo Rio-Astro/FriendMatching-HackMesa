@@ -29,7 +29,7 @@ function useTypewriter(text, speed, delay) {
 
 export default function Landing({ onNav }) {
   const titleText = "Find your college.\nFind your people.";
-  const { displayed, isDone } = useTypewriter(titleText, 60, 400);
+  const { displayed, isDone } = useTypewriter(titleText, 28, 120);
 
   const titleParts = displayed.split('\n');
 

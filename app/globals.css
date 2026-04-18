@@ -94,6 +94,20 @@ a {
   }
 }
 
+@keyframes confettiFall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(24px, 110vh, 0) rotate(540deg);
+  }
+}
+
 .eyebrow {
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -606,6 +620,26 @@ a {
   justify-content: center;
 }
 
+.confetti-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 40;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10vh;
+  width: 10px;
+  height: 18px;
+  border-radius: 999px;
+  opacity: 0;
+  animation-name: confettiFall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
 .quiz-font-label {
   font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
@@ -717,6 +751,7 @@ a {
   margin: 10px 0 0;
   letter-spacing: -0.015em;
   max-width: 720px;
+  color: #000000;
 }
 
 .filters {

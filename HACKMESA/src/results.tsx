@@ -20,11 +20,22 @@ type ResultsProps = {
   setColleges: Dispatch<SetStateAction<MatchedSchool[]>>;
 };
 
+const CONFETTI_PIECES = Array.from({ length: 56 }, (_, index) => ({
+  id: index,
+  left: (index * 17) % 100,
+  delay: (index % 12) * 0.1,
+  duration: 3.2 + (index % 6) * 0.24,
+  rotation: (index * 29) % 360,
+  color: `hsl(${(index * 31) % 360} 88% 62%)`,
+}));
+
 export default function Results({ onNav, saved, toggleSave, answers, colleges, setColleges }: ResultsProps) {
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(false);
   const [popupCollege, setPopupCollege] = useState<MatchedSchool | null>(null);
   const [pitch, setPitch] = useState<string | null>(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [hasCelebrated, setHasCelebrated] = useState(false);
 
   const openPitch = async (college: MatchedSchool) => {
     setPopupCollege(college);
@@ -76,6 +87,21 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
     }
   }, [answers, setColleges]);
 
+  useEffect(() => {
+    if (loading || hasCelebrated || Object.keys(answers).length === 0 || colleges.length === 0) {
+      return;
+    }
+
+    setShowConfetti(true);
+    setHasCelebrated(true);
+
+    const timer = window.setTimeout(() => {
+      setShowConfetti(false);
+    }, 4200);
+
+    return () => window.clearTimeout(timer);
+  }, [answers, colleges.length, hasCelebrated, loading]);
+
   const collegeList = colleges?.length ? colleges : UNIVERSITIES;
   const filters: Array<{ id: 'all' | 'high' | 'small' | 'outdoor' | 'affordable'; label: string }> = [
     { id: 'all', label: 'All matches' },
@@ -98,11 +124,29 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
     <div className="page" data-screen-label="04 Results">
       <Nav route="results" onNav={onNav} />
 
+      {showConfetti ? (
+        <div className="confetti-rain" aria-hidden="true">
+          {CONFETTI_PIECES.map((piece) => (
+            <span
+              key={piece.id}
+              className="confetti-piece"
+              style={{
+                left: `${piece.left}%`,
+                background: piece.color,
+                animationDelay: `${piece.delay}s`,
+                animationDuration: `${piece.duration}s`,
+                transform: `rotate(${piece.rotation}deg)`,
+              }}
+            />
+          ))}
+        </div>
+      ) : null}
+
       <div className="results">
         <div className="results-head">
           <div>
-            <span className="eyebrow">Your matches · Based on 8 answers</span>
-            <h1>Eight places that could feel like home.</h1>
+            <span className="eyebrow">Results</span>
+            <h1>Congratulations!</h1>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
             <span className="mono-tag">{saved.length} saved · {list.length} shown</span>
@@ -151,7 +195,7 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
                       title={saved.includes(u.id) ? 'Saved' : 'Save'}>
                       <Icon.bookmark size={14} fill={saved.includes(u.id) ? 'currentColor' : 'none'}/>
                     </button>
-                    <button className="btn sm" onClick={() => openPitch(u)}>View pitch</button>
+                    <button className="btn sm" onClick={() => openPitch(u)}>View</button>
                   </div>
                 </div>
               </div>

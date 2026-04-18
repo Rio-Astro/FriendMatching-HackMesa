@@ -7,17 +7,6 @@ import type { QuizAnswers, QuizOption, QuizQuestion, RouteName } from '@/lib/typ
 import { QUIZ } from './data';
 import { Icon, Nav } from './shared';
 
-const FONT_SHOWCASE = [
-  { family: 'var(--font-fraunces), serif', name: 'Fraunces', weight: 350 },
-  { family: 'var(--font-playfair), serif', name: 'Playfair Display', weight: 400 },
-  { family: 'var(--font-dm-serif), serif', name: 'DM Serif Display', weight: 400 },
-  { family: 'var(--font-instrument-serif), serif', name: 'Instrument Serif', weight: 400 },
-  { family: 'var(--font-source-serif), serif', name: 'Source Serif 4', weight: 400 },
-  { family: 'var(--font-sora), sans-serif', name: 'Sora', weight: 500 },
-  { family: 'var(--font-plus-jakarta), sans-serif', name: 'Plus Jakarta Sans', weight: 500 },
-  { family: 'var(--font-manrope), sans-serif', name: 'Manrope', weight: 500 },
-];
-
 function getProgressColor(currentIndex: number, total: number) {
   const progress = total <= 1 ? 1 : currentIndex / (total - 1);
   const hue = Math.round(progress * 120);
@@ -28,9 +17,10 @@ type QuizProps = {
   onNav: (route: RouteName) => void;
   answers: QuizAnswers;
   setAnswers: Dispatch<SetStateAction<QuizAnswers>>;
+  onComplete?: (answers: QuizAnswers) => void;
 };
 
-export default function Quiz({ onNav, answers, setAnswers }: QuizProps) {
+export default function Quiz({ onNav, answers, setAnswers, onComplete }: QuizProps) {
   const [i, setI] = useState(0);
   const [slideKey, setSlideKey] = useState(0);
   const [searchValue, setSearchValue] = useState('');
@@ -45,13 +35,15 @@ export default function Quiz({ onNav, answers, setAnswers }: QuizProps) {
   };
 
   const choose = (key: string) => {
-    setAnswers((current) => ({ ...current, [q.id]: key }));
+    const nextAnswers = { ...answers, [q.id]: key };
+    setAnswers(nextAnswers);
 
     if (i < total - 1) {
       goTo(i + 1);
       return;
     }
 
+    onComplete?.(nextAnswers);
     onNav('results');
   };
 
@@ -124,16 +116,8 @@ export default function Quiz({ onNav, answers, setAnswers }: QuizProps) {
 
         <div className="quiz-body">
           <div className="quiz-slide" key={slideKey}>
-            {FONT_SHOWCASE[i] && (
-              <div className="quiz-font-label">Font: {FONT_SHOWCASE[i].name}</div>
-            )}
             {q.eyebrow && <div className="quiz-eyebrow">{q.eyebrow}</div>}
-            <h2
-              style={FONT_SHOWCASE[i] ? {
-                fontFamily: FONT_SHOWCASE[i].family,
-                fontWeight: FONT_SHOWCASE[i].weight,
-              } : undefined}
-            >{q.title}</h2>
+            <h2>{q.title}</h2>
             {q.hint && <p className="quiz-hint">{q.hint}</p>}
             {q.type === 'select' ? (
               <div style={{ width: '100%', maxWidth: 400, margin: '0 auto', textAlign: 'left' }}>

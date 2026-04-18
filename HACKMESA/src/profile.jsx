@@ -1,8 +1,31 @@
+import { useEffect, useState } from 'react';
+
 import { FRIENDS } from './data';
 import { getCompatibilityColor, Icon, MonoAvatar, Nav } from './shared';
 
-export default function Profile({ onNav, profileId, savedFriends, toggleSaveFriend }) {
-  const person = FRIENDS.find((f) => f.id === profileId);
+function getPrimaryMeta(person) {
+  if (person.age) {
+    return `${person.age} years old`;
+  }
+
+  if (person.graduationYear) {
+    return `Class of ${person.graduationYear}`;
+  }
+
+  if (person.major) {
+    return person.major;
+  }
+
+  return 'Mesa profile';
+}
+
+export default function Profile({ onNav, profileId, isDemoMode, friendFeed, savedFriends, toggleSaveFriend }) {
+  const person = (isDemoMode ? FRIENDS : friendFeed).find((f) => f.id === profileId);
+  const [coverFailed, setCoverFailed] = useState(false);
+
+  useEffect(() => {
+    setCoverFailed(false);
+  }, [profileId]);
 
   if (!person) {
     return (
@@ -22,6 +45,7 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
 
   const isSaved = savedFriends.includes(person.id);
   const compatibilityColor = getCompatibilityColor(person.compat);
+  const hasCover = Boolean(person.coverImageUrl) && !coverFailed;
 
   return (
     <div className="page" data-screen-label="09 Profile">
@@ -33,24 +57,38 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
 
         <div className="profile-layout">
           <div className="profile-main">
-            <div className="profile-hero">
-              <div className="profile-avatar-wrap">
-                <MonoAvatar initials={person.initials} emoji={person.avatarEmoji} size={120} />
-                <div className="profile-compat-badge">
-                  <span className="profile-compat-num" style={{ color: compatibilityColor }}>{person.compat}</span>
-                  <span className="profile-compat-pct" style={{ color: compatibilityColor }}>%</span>
-                  <span className="profile-compat-label">compatibility</span>
+            <div className={'profile-hero' + (hasCover ? ' has-cover' : '')}>
+              {hasCover ? (
+                <>
+                  <img
+                    className="profile-hero-bg"
+                    src={person.coverImageUrl}
+                    alt=""
+                    aria-hidden="true"
+                    onError={() => setCoverFailed(true)}
+                  />
+                  <div className="profile-hero-scrim" />
+                </>
+              ) : null}
+              <div className="profile-hero-inner">
+                <div className="profile-avatar-wrap">
+                  <MonoAvatar initials={person.initials} emoji={person.avatarEmoji} size={120} />
+                  <div className="profile-compat-badge">
+                    <span className="profile-compat-num" style={{ color: compatibilityColor }}>{person.compat}</span>
+                    <span className="profile-compat-pct" style={{ color: compatibilityColor }}>%</span>
+                    <span className="profile-compat-label">compatibility</span>
+                  </div>
                 </div>
-              </div>
-              <div className="profile-identity">
-                <h1>{person.name}</h1>
-                <div className="profile-meta">
-                  <span>{person.age} years old</span>
-                  <span className="profile-meta-sep" />
-                  <span>{person.origin}</span>
-                </div>
-                <div className="profile-school-badge">
-                  {person.school}
+                <div className="profile-identity">
+                  <h1>{person.name}</h1>
+                  <div className="profile-meta">
+                    <span>{getPrimaryMeta(person)}</span>
+                    <span className="profile-meta-sep" />
+                    <span>{person.origin}</span>
+                  </div>
+                  <div className="profile-school-badge">
+                    {person.school}
+                  </div>
                 </div>
               </div>
             </div>
@@ -61,16 +99,27 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
                 <span className="profile-field-value">{person.name}</span>
               </div>
               <div className="profile-field">
-                <span className="profile-field-label">Age</span>
-                <span className="profile-field-value">{person.age}</span>
+                <span className="profile-field-label">Profile</span>
+                <span className="profile-field-value">{getPrimaryMeta(person)}</span>
               </div>
               <div className="profile-field">
                 <span className="profile-field-label">Major</span>
                 <span className="profile-field-value">
-                  {person.interests[0].charAt(0).toUpperCase() + person.interests[0].slice(1)}
+                  {person.major || (person.interests[0] ? person.interests[0].charAt(0).toUpperCase() + person.interests[0].slice(1) : 'Undecided')}
                 </span>
               </div>
             </div>
+
+            {person.selectedSchools?.length ? (
+              <div className="profile-section">
+                <span className="mono-tag">Selected schools</span>
+                <div className="profile-shared-tags">
+                  {person.selectedSchools.map((school) => (
+                    <span key={school} className="chip">{school}</span>
+                  ))}
+                </div>
+              </div>
+            ) : null}
 
             <div className="profile-section">
               <span className="mono-tag">Bio</span>
@@ -100,9 +149,9 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
                 onClick={() => toggleSaveFriend(person.id)}
               >
                 <Icon.heart size={16} fill={isSaved ? 'currentColor' : 'none'} />
-                {isSaved ? 'Friends' : 'Send Friend Request'}
+                {isSaved ? 'Saved to your list' : 'Save this profile'}
               </button>
-              <button className="btn ghost">
+              <button className="btn ghost" disabled>
                 <Icon.msg size={16} /> Message
               </button>
             </div>

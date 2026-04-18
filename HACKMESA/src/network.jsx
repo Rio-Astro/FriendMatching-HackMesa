@@ -1,11 +1,102 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FRIENDS } from './data';
 import { getCompatibilityColor, Icon, MonoAvatar, Nav } from './shared';
 
-export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewProfile }) {
+function getVisiblePeople(isDemoMode, friendFeed) {
+  return isDemoMode ? FRIENDS : friendFeed;
+}
+
+function getProfileMeta(person) {
+  if (person.age) {
+    return `${person.age} years old`;
+  }
+
+  if (person.graduationYear) {
+    return `Class of ${person.graduationYear}`;
+  }
+
+  if (person.major) {
+    return person.major;
+  }
+
+  return 'Mesa profile';
+}
+
+export default function Network({
+  onNav,
+  isDemoMode,
+  selected,
+  colleges,
+  savedFriends,
+  toggleSaveFriend,
+  friendFeed,
+  setFriendFeed,
+  setMatchProfile,
+  hasMatchProfile,
+  setHasMatchProfile,
+  onViewProfile,
+}) {
   const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');
+  const [failedCovers, setFailedCovers] = useState({});
+  const [loading, setLoading] = useState(!isDemoMode);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (isDemoMode) {
+      setLoading(false);
+      return undefined;
+    }
+
+    let cancelled = false;
+
+    async function hydrateNetwork() {
+      setLoading(true);
+      setError('');
+
+      try {
+        const [profileResponse, feedResponse] = await Promise.all([
+          fetch('/api/friends/profile'),
+          fetch('/api/friends/feed'),
+        ]);
+
+        if (!profileResponse.ok) {
+          throw new Error(await profileResponse.text());
+        }
+
+        if (!feedResponse.ok) {
+          throw new Error(await feedResponse.text());
+        }
+
+        const profileData = await profileResponse.json();
+        const feedData = await feedResponse.json();
+
+        if (cancelled) {
+          return;
+        }
+
+        setHasMatchProfile(Boolean(profileData.exists));
+        setMatchProfile(profileData.profile);
+        setFriendFeed(Array.isArray(feedData.items) ? feedData.items : []);
+      } catch (fetchError) {
+        if (!cancelled) {
+          console.error('Failed to load network data', fetchError);
+          setError('Could not load your friend network yet.');
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    }
+
+    void hydrateNetwork();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isDemoMode, setFriendFeed, setHasMatchProfile, setMatchProfile]);
 
   const filters = [
     { id: 'all', label: 'All People' },
@@ -14,7 +105,8 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
     { id: 'daily', label: 'Daily' },
   ];
 
-  const filtered = FRIENDS.filter((p) => {
+  const people = getVisiblePeople(isDemoMode, friendFeed);
+  const filtered = people.filter((p) => {
     if (search) {
       const q = search.toLowerCase();
       return p.name.toLowerCase().includes(q) || p.school.toLowerCase().includes(q) || p.interests.some(i => i.toLowerCase().includes(q));
@@ -22,6 +114,33 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
     if (filter === 'friends') return savedFriends.includes(p.id);
     return true;
   });
+
+  const selectedSchools = selected.map((id) => colleges.find((college) => college.id === id)?.name).filter(Boolean);
+  const selectedSchoolSummary = selectedSchools.length > 0 ? selectedSchools.join(' · ') : 'No selected schools yet';
+
+  const refreshFeed = async () => {
+    setError('');
+
+    try {
+      const response = await fetch('/api/friends/recompute', {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      const data = await response.json();
+      if (data.profile) {
+        setMatchProfile(data.profile);
+        setHasMatchProfile(true);
+      }
+      setFriendFeed(Array.isArray(data.items) ? data.items : []);
+    } catch (refreshError) {
+      console.error('Failed to refresh friend feed', refreshError);
+      setError('Could not refresh your matches right now.');
+    }
+  };
 
   return (
     <div className="page" data-screen-label="08 Network">
@@ -45,13 +164,20 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
 
           <div className="f-block">
             <span className="mono-tag">Account</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 12 }}>
-              <MonoAvatar initials="YOU" emoji="🧑" size={40} />
-              <div>
-                <div style={{ fontWeight: 500, fontSize: 14 }}>Your Profile</div>
-                <div style={{ fontSize: 12, color: 'var(--ink-2)' }}>View &amp; edit</div>
-              </div>
-            </div>
+            <button
+              type="button"
+              className="btn ghost sm"
+              style={{ marginTop: 12, width: '100%', justifyContent: 'flex-start' }}
+              onClick={() => onNav('me')}
+            >
+              <MonoAvatar initials="YOU" emoji="🧑" size={28} />
+              {isDemoMode ? 'Demo profile' : hasMatchProfile ? 'Edit your profile' : 'Create your profile'}
+            </button>
+            {!isDemoMode && !hasMatchProfile ? (
+              <p style={{ margin: '10px 0 0', fontSize: 12.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
+                Optional. Make one when you want real people to find you.
+              </p>
+            ) : null}
           </div>
 
           <div className="f-block">
@@ -59,7 +185,7 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
             <div style={{ display: 'flex', gap: 6, marginTop: 10, flexWrap: 'wrap' }}>
               {savedFriends.length === 0 && <span style={{ fontSize: 12, color: 'var(--mute)' }}>No saved people yet.</span>}
               {savedFriends.map((id) => {
-                const fr = FRIENDS.find((x) => x.id === id);
+                const fr = people.find((x) => x.id === id);
                 return fr ? <MonoAvatar key={id} initials={fr.initials} emoji={fr.avatarEmoji} size={36} /> : null;
               })}
             </div>
@@ -67,6 +193,15 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
 
           <div className="f-block">
             <span className="mono-tag">Quick actions</span>
+            {!isDemoMode ? (
+              <button
+                className="btn ghost sm"
+                style={{ marginTop: 10, width: '100%', justifyContent: 'center' }}
+                onClick={refreshFeed}
+              >
+                Refresh matches <Icon.arrowR size={12} />
+              </button>
+            ) : null}
             <button
               className="btn ghost sm"
               style={{ marginTop: 10, width: '100%', justifyContent: 'center' }}
@@ -78,6 +213,18 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
         </aside>
 
         <div className="network-main">
+          {!isDemoMode && !hasMatchProfile ? (
+            <div className="network-empty-profile">
+              <span className="eyebrow">Optional profile</span>
+              <h3>Create your friend profile when you're ready.</h3>
+              <p>It lives in the Profile tab now. Your network stays clean, and you can come back to the editor anytime.</p>
+              <div className="mono-tag" style={{ marginBottom: 18 }}>Selected schools · {selectedSchoolSummary}</div>
+              <button className="btn" onClick={() => onNav('me')}>
+                Create your profile <Icon.arrowR size={14} />
+              </button>
+            </div>
+          ) : null}
+
           <div className="network-toolbar">
             <div className="network-search">
               <Icon.search size={16} />
@@ -91,9 +238,21 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
             <span className="mono-tag">{filtered.length} people</span>
           </div>
 
-          {filtered.length === 0 && (
+          {loading ? (
             <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--mute)' }}>
-              <p style={{ fontSize: 15 }}>No people match your search.</p>
+              <p style={{ fontSize: 15 }}>Loading your network...</p>
+            </div>
+          ) : null}
+
+          {!loading && error ? (
+            <div style={{ textAlign: 'center', padding: '24px 20px', color: '#b00020' }}>
+              <p style={{ fontSize: 15 }}>{error}</p>
+            </div>
+          ) : null}
+
+          {!loading && filtered.length === 0 && (
+            <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--mute)' }}>
+              <p style={{ fontSize: 15 }}>{hasMatchProfile || isDemoMode ? 'No people match your search yet.' : 'Create your profile to unlock real friend matches.'}</p>
             </div>
           )}
 
@@ -101,44 +260,63 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
             {filtered.map((p) => (
               (() => {
                 const compatibilityColor = getCompatibilityColor(p.compat);
+                const hasCover = Boolean(p.coverImageUrl) && !failedCovers[p.id];
 
                 return (
               <div
                 key={p.id}
-                className="network-card"
+                className={'network-card' + (hasCover ? ' has-cover' : '')}
                 onClick={() => onViewProfile(p.id)}
               >
-                <div className="network-card-avatar">
-                  <MonoAvatar initials={p.initials} emoji={p.avatarEmoji} size={72} />
-                  <span className="network-card-compat" style={{ color: compatibilityColor }}>{p.compat}%</span>
-                </div>
-                <div className="network-card-info">
-                  <h4>{p.name}</h4>
-                  <span className="network-card-school">
-                    {p.school.replace(' (committed)', '').replace(' (interested)', '')}
-                  </span>
-                  <span className="network-card-origin">{p.origin}</span>
-                </div>
-                <div className="network-card-interests">
-                  {p.interests.slice(0, 3).map((t) => (
-                    <span key={t} className="chip">{t}</span>
-                  ))}
-                </div>
-                <div className="network-card-actions">
-                  <button
-                    className={'icon-btn' + (savedFriends.includes(p.id) ? ' on' : '')}
-                    title="Save"
-                    onClick={(e) => { e.stopPropagation(); toggleSaveFriend(p.id); }}
-                  >
-                    <Icon.bookmark size={14} fill={savedFriends.includes(p.id) ? 'currentColor' : 'none'} />
-                  </button>
-                  <button
-                    className="icon-btn"
-                    title="View profile"
-                    onClick={(e) => { e.stopPropagation(); onViewProfile(p.id); }}
-                  >
-                    <Icon.arrowR size={14} />
-                  </button>
+                {hasCover ? (
+                  <>
+                    <img
+                      className="network-card-bg"
+                      src={p.coverImageUrl}
+                      alt=""
+                      aria-hidden="true"
+                      onError={() => setFailedCovers((current) => ({ ...current, [p.id]: true }))}
+                    />
+                    <div className="network-card-scrim" />
+                  </>
+                ) : null}
+                <div className="network-card-body">
+                  <div className="network-card-top">
+                    <div className="network-card-avatar">
+                      <MonoAvatar initials={p.initials} emoji={p.avatarEmoji} size={72} />
+                      <span className="network-card-compat" style={{ color: compatibilityColor }}>{p.compat}%</span>
+                    </div>
+                    <div className="network-card-actions">
+                      <button
+                        className={'icon-btn' + (hasCover ? ' network-card-icon' : '') + (savedFriends.includes(p.id) ? ' on' : '')}
+                        title="Save"
+                        onClick={(e) => { e.stopPropagation(); toggleSaveFriend(p.id); }}
+                      >
+                        <Icon.bookmark size={14} fill={savedFriends.includes(p.id) ? 'currentColor' : 'none'} />
+                      </button>
+                      <button
+                        className={'icon-btn' + (hasCover ? ' network-card-icon' : '')}
+                        title="View profile"
+                        onClick={(e) => { e.stopPropagation(); onViewProfile(p.id); }}
+                      >
+                        <Icon.arrowR size={14} />
+                      </button>
+                    </div>
+                  </div>
+                    <div className="network-card-bottom">
+                      <div className="network-card-info">
+                        <h4>{p.name}</h4>
+                        <span className="network-card-school">
+                          {p.school.replace(' (committed)', '').replace(' (interested)', '')}
+                        </span>
+                        <span className="network-card-origin">{getProfileMeta(p)} · {p.origin}</span>
+                      </div>
+                    <div className="network-card-interests">
+                      {p.interests.slice(0, 3).map((t) => (
+                        <span key={t} className={'chip' + (hasCover ? ' network-card-chip' : '')}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
                 );

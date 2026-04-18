@@ -4,6 +4,7 @@ export type RouteName =
   | 'quiz'
   | 'results'
   | 'selection'
+  | 'me'
   | 'posts'
   | 'network'
   | 'profile';
@@ -56,9 +57,13 @@ export type QuizQuestion = {
 export type FriendCard = {
   id: string;
   name: string;
-  age: number;
+  age?: number;
+  graduationYear?: number | null;
+  major?: string;
   initials: string;
   avatarEmoji?: string;
+  avatarUrl?: string | null;
+  coverImageUrl?: string | null;
   isDemo?: boolean;
   school: string;
   origin: string;
@@ -68,6 +73,7 @@ export type FriendCard = {
   compat: number;
   shared: string[];
   reason: string;
+  selectedSchools?: string[];
   tone: 'sage' | 'sand' | 'clay';
 };
 
@@ -89,7 +95,7 @@ export type MatchProfile = {
   id: string;
   clerkUserId?: string | null;
   displayName: string;
-  graduationYear: number;
+  graduationYear: number | null;
   major: string;
   bio: string;
   homeState: string;
@@ -98,6 +104,22 @@ export type MatchProfile = {
   isDemo: boolean;
   demoLabel?: 'Demo' | 'AI' | null;
   profileStatus: 'active' | 'paused' | 'hidden';
+  interests: string[];
+  goals: string[];
+  selectedSchoolIds: string[];
+  selectedSchools: string[];
+};
+
+export type MatchProfileDraft = {
+  displayName: string;
+  graduationYear: number | null;
+  major: string;
+  bio: string;
+  homeState: string;
+  profileStatus: 'active' | 'paused';
+  interests: string[];
+  goals: string[];
+  selectedSchoolIds: string[];
 };
 
 export type CompatibilityEdge = {

@@ -4,11 +4,12 @@ import { useEffect, useState } from 'react';
 
 import { useUser } from '@clerk/nextjs';
 
-import type { MatchedSchool, NavItem, QuizAnswers, RouteName } from '@/lib/types';
+import type { FriendCard, MatchProfileDraft, MatchedSchool, NavItem, QuizAnswers, RouteName } from '@/lib/types';
 
 import Auth from './auth';
 import { UNIVERSITIES } from './data';
 import Landing from './landing';
+import MyProfile from './my-profile';
 import { NavigationProvider } from './navigation-context';
 import Network from './network';
 import Posts from './posts';
@@ -34,19 +35,37 @@ function getFallbackRoute(hasAuthAccess: boolean, hasTakenQuiz: boolean, hasSele
 }
 
 function getNavItems(hasAuthAccess: boolean, hasTakenQuiz: boolean, hasSelectedSchools: boolean): NavItem[] {
-  if (!hasAuthAccess || !hasTakenQuiz) {
+  if (!hasAuthAccess) {
     return [];
   }
 
   const items: NavItem[] = [{ id: 'landing', label: 'Home' }];
 
-  items.push({ id: 'quiz', label: 'Quiz' }, { id: 'results', label: 'Matches' });
+  items.push({ id: 'quiz', label: 'Quiz' });
+
+  if (hasTakenQuiz) {
+    items.push({ id: 'results', label: 'Matches' });
+  }
 
   if (hasSelectedSchools) {
-    items.push({ id: 'network', label: 'Network' });
+    items.push({ id: 'network', label: 'Network' }, { id: 'me', label: 'Profile' });
   }
 
   return items;
+}
+
+async function fetchMatchesForAnswers(answers: QuizAnswers) {
+  const response = await fetch('/api/match', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ answers }),
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return (await response.json()) as MatchedSchool[];
 }
 
 export default function MesaApp() {
@@ -57,15 +76,20 @@ export default function MesaApp() {
   const [saved, setSaved] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
   const [savedFriends, setSavedFriends] = useState<string[]>([]);
+  const [friendFeed, setFriendFeed] = useState<FriendCard[]>([]);
+  const [matchProfile, setMatchProfile] = useState<MatchProfileDraft | null>(null);
+  const [hasMatchProfile, setHasMatchProfile] = useState(false);
   const [viewProfileId, setViewProfileId] = useState<string | null>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
   const [routeLoaded, setRouteLoaded] = useState(false);
+  const [isUserStateLoaded, setIsUserStateLoaded] = useState(false);
 
   const hasAuthAccess = isSignedIn || isDemoMode;
   const hasTakenQuiz = Object.keys(answers).length > 0;
   const hasSelectedSchools = selected.length > 0;
   const navItems = getNavItems(hasAuthAccess, hasTakenQuiz, hasSelectedSchools);
-  const showAccountChrome = hasTakenQuiz;
+  const showAccountChrome = hasAuthAccess;
+  const hasResolvedUserState = !isSignedIn || isUserStateLoaded;
 
   useEffect(() => {
     const savedRoute = window.localStorage.getItem('mesa.route');
@@ -93,7 +117,72 @@ export default function MesaApp() {
   }, [isDemoMode, isLoaded, route, routeLoaded]);
 
   useEffect(() => {
-    if (!routeLoaded || !isLoaded) {
+    if (!isLoaded) {
+      return;
+    }
+
+    if (!isSignedIn) {
+      setIsUserStateLoaded(true);
+      return;
+    }
+
+    let cancelled = false;
+
+    async function hydrateUserState() {
+      setIsUserStateLoaded(false);
+
+      try {
+        const response = await fetch('/api/user/state');
+
+        if (!response.ok) {
+          throw new Error(await response.text());
+        }
+
+        const data = (await response.json()) as {
+          quizAnswers?: QuizAnswers;
+          savedSchoolIds?: string[];
+          selectedSchoolIds?: string[];
+        };
+
+        if (cancelled) {
+          return;
+        }
+
+        setAnswers(data.quizAnswers || {});
+        setSaved(Array.isArray(data.savedSchoolIds) ? data.savedSchoolIds : []);
+        setSelected(Array.isArray(data.selectedSchoolIds) ? data.selectedSchoolIds : []);
+
+        if (data.quizAnswers && Object.keys(data.quizAnswers).length > 0) {
+          try {
+            const matchedColleges = await fetchMatchesForAnswers(data.quizAnswers);
+
+            if (!cancelled) {
+              setColleges(matchedColleges);
+            }
+          } catch (error) {
+            console.error('Failed to preload matches for saved quiz answers', error);
+          }
+        } else {
+          setColleges(UNIVERSITIES);
+        }
+      } catch (error) {
+        console.error('Failed to hydrate user state', error);
+      } finally {
+        if (!cancelled) {
+          setIsUserStateLoaded(true);
+        }
+      }
+    }
+
+    void hydrateUserState();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isLoaded, isSignedIn]);
+
+  useEffect(() => {
+    if (!routeLoaded || !isLoaded || !hasResolvedUserState) {
       return;
     }
 
@@ -110,6 +199,7 @@ export default function MesaApp() {
 
     if (hasSelectedSchools) {
       allowedRoutes.add('network');
+      allowedRoutes.add('me');
       allowedRoutes.add('posts');
 
       if (viewProfileId) {
@@ -120,7 +210,7 @@ export default function MesaApp() {
     if (!allowedRoutes.has(route)) {
       setRoute(getFallbackRoute(hasAuthAccess, hasTakenQuiz, hasSelectedSchools));
     }
-  }, [hasAuthAccess, hasSelectedSchools, hasTakenQuiz, isLoaded, route, routeLoaded, viewProfileId]);
+  }, [hasAuthAccess, hasResolvedUserState, hasSelectedSchools, hasTakenQuiz, isLoaded, route, routeLoaded, viewProfileId]);
 
   useEffect(() => {
     if (isSignedIn && isDemoMode) {
@@ -128,18 +218,129 @@ export default function MesaApp() {
     }
   }, [isDemoMode, isSignedIn]);
 
+  useEffect(() => {
+    if (!isLoaded || isSignedIn || isDemoMode) {
+      return;
+    }
+
+    setAnswers({});
+    setColleges(UNIVERSITIES);
+    setSaved([]);
+    setSelected([]);
+    setSavedFriends([]);
+    setFriendFeed([]);
+    setMatchProfile(null);
+    setHasMatchProfile(false);
+    setViewProfileId(null);
+  }, [isDemoMode, isLoaded, isSignedIn]);
+
+  const recomputeFriends = async () => {
+    try {
+      const response = await fetch('/api/friends/recompute', {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      const data = await response.json();
+
+      setHasMatchProfile(Boolean(data.profile));
+      if (data.profile) {
+        setMatchProfile(data.profile);
+      }
+      if (Array.isArray(data.items)) {
+        setFriendFeed(data.items);
+      }
+    } catch (error) {
+      console.error('Failed to recompute friend feed', error);
+    }
+  };
+
+  const persistSavedSchool = async (schoolId: string, savedNextValue: boolean, rollbackValue: string[]) => {
+    try {
+      const response = await fetch('/api/user/saved-schools', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ schoolId, saved: savedNextValue }),
+      });
+
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+    } catch (error) {
+      console.error('Failed to persist saved school', error);
+      setSaved(rollbackValue);
+    }
+  };
+
+  const persistSelectedSchools = async (selectedNextValue: string[], rollbackValue: string[]) => {
+    try {
+      const response = await fetch('/api/user/state', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ selectedSchoolIds: selectedNextValue }),
+      });
+
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      if (hasMatchProfile) {
+        void recomputeFriends();
+      }
+    } catch (error) {
+      console.error('Failed to persist selected schools', error);
+      setSelected(rollbackValue);
+    }
+  };
+
+  const persistQuizCompletion = async (completedAnswers: QuizAnswers) => {
+    try {
+      const response = await fetch('/api/user/quiz-results', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answers: completedAnswers }),
+      });
+
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      if (hasMatchProfile) {
+        void recomputeFriends();
+      }
+    } catch (error) {
+      console.error('Failed to persist quiz results', error);
+    }
+  };
+
   const toggleSave = (id: string) => {
-    setSaved((current) =>
-      current.includes(id) ? current.filter((value) => value !== id) : [...current, id],
-    );
+    setSaved((current) => {
+      const wasSaved = current.includes(id);
+      const nextValue = wasSaved ? current.filter((value) => value !== id) : [...current, id];
+
+      if (isSignedIn && !isDemoMode) {
+        void persistSavedSchool(id, !wasSaved, current);
+      }
+
+      return nextValue;
+    });
   };
 
   const toggleSelect = (id: string) => {
-    setSelected((current) =>
-      current.includes(id)
+    setSelected((current) => {
+      const nextValue = current.includes(id)
         ? current.filter((value) => value !== id)
-        : [...current, id].slice(0, 3),
-    );
+        : [...current, id].slice(0, 3);
+
+      if (isSignedIn && !isDemoMode) {
+        void persistSelectedSchools(nextValue, current);
+      }
+
+      return nextValue;
+    });
   };
 
   const toggleSaveFriend = (id: string) => {
@@ -150,12 +351,35 @@ export default function MesaApp() {
 
   let content;
 
+  if (isLoaded && isSignedIn && !isUserStateLoaded) {
+    return (
+      <NavigationProvider value={{ items: navItems, isDemoMode, showAccountChrome }}>
+        <div className="page">
+          <div style={{ padding: '80px 20px', textAlign: 'center', color: 'var(--ink-2)' }}>
+            <div className="mono-tag">Loading your saved Mesa state...</div>
+          </div>
+        </div>
+      </NavigationProvider>
+    );
+  }
+
   switch (route) {
     case 'auth':
       content = <Auth onNav={setRoute} onLogin={(mode: 'demo' | 'clerk') => { setIsDemoMode(mode === 'demo'); setRoute('quiz'); }} />;
       break;
     case 'quiz':
-      content = <Quiz onNav={setRoute} answers={answers} setAnswers={setAnswers} />;
+      content = (
+        <Quiz
+          onNav={setRoute}
+          answers={answers}
+          setAnswers={setAnswers}
+          onComplete={(completedAnswers) => {
+            if (isSignedIn && !isDemoMode) {
+              void persistQuizCompletion(completedAnswers);
+            }
+          }}
+        />
+      );
       break;
     case 'results':
       content = (
@@ -183,9 +407,32 @@ export default function MesaApp() {
       content = (
         <Network
           onNav={setRoute}
+          isDemoMode={isDemoMode}
+          selected={selected}
+          colleges={colleges}
           savedFriends={savedFriends}
           toggleSaveFriend={toggleSaveFriend}
+          friendFeed={friendFeed}
+          setFriendFeed={setFriendFeed}
+          setMatchProfile={setMatchProfile}
+          hasMatchProfile={hasMatchProfile}
+          setHasMatchProfile={setHasMatchProfile}
           onViewProfile={(id: string) => { setViewProfileId(id); setRoute('profile'); }}
+        />
+      );
+      break;
+    case 'me':
+      content = (
+        <MyProfile
+          onNav={setRoute}
+          isDemoMode={isDemoMode}
+          selected={selected}
+          colleges={colleges}
+          matchProfile={matchProfile}
+          setMatchProfile={setMatchProfile}
+          hasMatchProfile={hasMatchProfile}
+          setHasMatchProfile={setHasMatchProfile}
+          setFriendFeed={setFriendFeed}
         />
       );
       break;
@@ -194,6 +441,8 @@ export default function MesaApp() {
         <Profile
           onNav={setRoute}
           profileId={viewProfileId}
+          isDemoMode={isDemoMode}
+          friendFeed={friendFeed}
           savedFriends={savedFriends}
           toggleSaveFriend={toggleSaveFriend}
         />

@@ -33,12 +33,12 @@ export default function CreationOfAdamCanvas() {
         canvas,
         imageSrc: '/creationofadamascii.jpg',
         chars: CHAR_RAMP,
-        fontSize: width < 900 ? 7 : 8,
+        fontSize: width < 900 ? 9 : 10,
         fontFamily: '"JetBrains Mono", monospace',
         brightnessBoost: 1.05,
-        posterize: 16,
-        parallaxStrength: 6,
-        scale: 1.02,
+        posterize: 12,
+        parallaxStrength: 4,
+        scale: 1,
         colorFn: (luminance) => {
           const lightness = 4 + (luminance / 255) * 8;
           return `hsl(222 52% ${lightness}%)`;

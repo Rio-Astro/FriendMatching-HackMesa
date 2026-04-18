@@ -19,7 +19,7 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
 }
 
 body {
@@ -640,16 +640,6 @@ a {
   animation-fill-mode: forwards;
 }
 
-.quiz-font-label {
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--mute);
-  text-align: center;
-  margin-bottom: 6px;
-}
-
 .quiz-eyebrow {
   font-family: var(--font-jetbrains-mono), monospace;
   font-size: 12px;
@@ -661,8 +651,8 @@ a {
 }
 
 .quiz-body h2 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 350;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 48px;
   line-height: 1.15;
   margin: 0 0 16px;
@@ -672,7 +662,7 @@ a {
 }
 
 .quiz-hint {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-size: 15px;
   color: var(--ink-2);
   text-align: center;
@@ -744,8 +734,8 @@ a {
 }
 
 .results-head h1 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 350;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 56px;
   line-height: 1;
   margin: 10px 0 0;
@@ -804,8 +794,8 @@ a {
 }
 
 .result .info h3 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 400;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 28px;
   margin: 0;
   line-height: 1.05;
@@ -888,8 +878,8 @@ a {
 }
 
 .selection h1 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 350;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 56px;
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -1651,8 +1641,8 @@ a {
 }
 
 .network-side h4 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 400;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 30px;
   line-height: 1.08;
   margin: 8px 0 0;
@@ -1696,6 +1686,25 @@ a {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.network-empty-profile {
+  border: 1px solid var(--line);
+  background: var(--white);
+  padding: 24px;
+}
+
+.network-empty-profile h3 {
+  margin: 8px 0 10px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.network-empty-profile p {
+  margin: 0 0 14px;
+  max-width: 620px;
+  color: var(--ink-2);
 }
 
 .network-toolbar {
@@ -1743,6 +1752,7 @@ a {
 }
 
 .network-card {
+  position: relative;
   border: 1px solid var(--line);
   background: var(--white);
   padding: 24px 20px;
@@ -1751,11 +1761,53 @@ a {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-height: 320px;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .network-card:hover {
   border-color: var(--ink);
   transform: translateY(-2px);
+}
+
+.network-card.has-cover {
+  background: #09111f;
+  border-color: transparent;
+  color: var(--white);
+  min-height: 360px;
+}
+
+.network-card-bg,
+.profile-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.network-card-scrim,
+.profile-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3, 8, 20, 0.22) 0%, rgba(3, 8, 20, 0.58) 46%, rgba(3, 8, 20, 0.74) 100%);
+}
+
+.network-card-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 100%;
+}
+
+.network-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .network-card-avatar {
@@ -1764,9 +1816,17 @@ a {
   gap: 14px;
 }
 
+.network-card.has-cover .mono-avatar,
+.profile-hero.has-cover .mono-avatar {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+
 .network-card-compat {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 300;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 32px;
   color: var(--ink);
   line-height: 1;
@@ -1779,8 +1839,8 @@ a {
 }
 
 .network-card-info h4 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 400;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 22px;
   margin: 0;
   line-height: 1.1;
@@ -1806,10 +1866,46 @@ a {
   flex-wrap: wrap;
 }
 
+.network-card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
 .network-card-actions {
   display: flex;
   gap: 6px;
-  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.network-card.has-cover .network-card-school {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.network-card.has-cover .network-card-origin {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.network-card-chip {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.network-card-icon {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.network-card-icon:hover,
+.network-card-icon.on {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--ink);
 }
 
 /* ── Profile tab ── */
@@ -1851,11 +1947,29 @@ a {
 }
 
 .profile-hero {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 32px;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--line);
+}
+
+.profile-hero.has-cover {
+  min-height: 340px;
+  align-items: flex-end;
+  padding: 32px;
+  border-bottom: none;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.profile-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
 }
 
 .profile-avatar-wrap {
@@ -1895,12 +2009,22 @@ a {
 }
 
 .profile-identity h1 {
-  font-family: var(--font-fraunces), serif;
-  font-weight: 350;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
   font-size: 48px;
   line-height: 1;
   letter-spacing: -0.02em;
   margin: 0 0 12px;
+}
+
+.profile-hero.has-cover .profile-identity h1,
+.profile-hero.has-cover .profile-meta,
+.profile-hero.has-cover .profile-compat-label {
+  color: var(--white);
+}
+
+.profile-hero.has-cover .profile-meta-sep {
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .profile-meta {
@@ -1925,6 +2049,12 @@ a {
   font-size: 13px;
   font-weight: 500;
   color: var(--ink);
+}
+
+.profile-hero.has-cover .profile-school-badge {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
 }
 
 .profile-fields {
@@ -1960,7 +2090,7 @@ a {
 }
 
 .profile-field-value {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-manrope), sans-serif;
   font-size: 18px;
   color: var(--ink);
 }
@@ -1971,7 +2101,7 @@ a {
 }
 
 .profile-bio {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-manrope), sans-serif;
   font-size: 22px;
   line-height: 1.35;
   margin: 12px 0 0;
@@ -2027,6 +2157,59 @@ a {
   border: 1px solid var(--line);
   background: var(--white);
   padding: 24px;
+}
+
+.profile-editor {
+  border: 1px solid var(--line);
+  background: var(--white);
+  padding: 28px;
+}
+
+.profile-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.profile-editor .field input,
+.profile-editor .field textarea,
+.profile-editor .field select {
+  border: 1px solid var(--line);
+  background: var(--white);
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+}
+
+.profile-editor .field input:focus,
+.profile-editor .field textarea:focus,
+.profile-editor .field select:focus {
+  border-color: var(--ink);
+}
+
+.profile-editor-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.profile-editor-section {
+  margin-bottom: 18px;
+}
+
+.profile-editor-label {
+  font-size: 12px;
+  color: var(--ink-2);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.profile-editor-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .profile-compat-ring {

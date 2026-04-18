@@ -13,14 +13,60 @@ function useTypewriter(text, speed, delay) {
   }, [delay]);
 
   useEffect(() => {
-    if (!started || charIndex >= text.length) return;
-    const nextStep = text[charIndex] === '\n' ? 2 : 1;
-    const timer = setTimeout(
-      () => setCharIndex(prev => Math.min(text.length, prev + nextStep)),
-      speed
-    );
-    return () => clearTimeout(timer);
-  }, [started, charIndex, text, speed]);
+    if (!started) {
+      return undefined;
+    }
+
+    let frameId = 0;
+    const startedAt = performance.now();
+
+    const getDelayForChar = (character) => {
+      if (character === '\n') {
+        return speed * 0.18;
+      }
+
+      if (character === ' ') {
+        return speed * 0.45;
+      }
+
+      if (/[.,!?]/.test(character)) {
+        return speed * 0.7;
+      }
+
+      return speed;
+    };
+
+    const syncFrame = (now) => {
+      let elapsed = now - startedAt;
+      let nextIndex = 0;
+
+      while (nextIndex < text.length) {
+        elapsed -= getDelayForChar(text[nextIndex]);
+
+        if (elapsed < 0) {
+          break;
+        }
+
+        nextIndex += 1;
+      }
+
+      setCharIndex((current) => {
+        if (current === nextIndex) {
+          return current;
+        }
+
+        return nextIndex;
+      });
+
+      if (nextIndex < text.length) {
+        frameId = window.requestAnimationFrame(syncFrame);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(syncFrame);
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [started, text, speed]);
 
   return {
     displayed: text.slice(0, charIndex),
@@ -29,8 +75,18 @@ function useTypewriter(text, speed, delay) {
 }
 
 export default function Landing({ onNav }) {
+  const [showCanvas, setShowCanvas] = useState(false);
   const titleText = "Find your college.\nFind your people.";
-  const { displayed, isDone } = useTypewriter(titleText, 18, 60);
+  const { displayed, isDone } = useTypewriter(titleText, 18, 40);
+
+  useEffect(() => {
+    if (!isDone) {
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => setShowCanvas(true), 80);
+    return () => window.clearTimeout(timer);
+  }, [isDone]);
 
   const titleParts = displayed.split('\n');
 
@@ -40,7 +96,7 @@ export default function Landing({ onNav }) {
 
       <div className="landing-hero-wrap">
         <div className="bubble-field">
-          <CreationOfAdamCanvas />
+          {showCanvas ? <CreationOfAdamCanvas /> : null}
         </div>
 
         <div className="landing-hero-content">

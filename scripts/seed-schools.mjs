@@ -3,6 +3,14 @@ import { readFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+for (const envFile of ['../.env.local', '../.env']) {
+  try {
+    process.loadEnvFile(fileURLToPath(new URL(envFile, import.meta.url)));
+  } catch {
+    // Local env files are optional; DATABASE_URL may already be set by the shell.
+  }
+}
+
 const databaseUrl = process.env.DATABASE_URL;
 
 if (!databaseUrl) {

@@ -1,4 +1,13 @@
 import { neon } from '@neondatabase/serverless';
+import { fileURLToPath } from 'url';
+
+for (const envFile of ['../.env.local', '../.env']) {
+  try {
+    process.loadEnvFile(fileURLToPath(new URL(envFile, import.meta.url)));
+  } catch {
+    // Local env files are optional; DATABASE_URL may already be set by the shell.
+  }
+}
 
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -82,9 +91,13 @@ create table if not exists user_profiles (
   display_name text,
   graduation_year integer,
   home_state text,
+  selected_school_ids_json jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table if exists user_profiles
+  add column if not exists selected_school_ids_json jsonb not null default '[]'::jsonb;
 
 create table if not exists saved_schools (
   clerk_user_id text not null references user_profiles(clerk_user_id) on delete cascade,
@@ -101,11 +114,68 @@ create table if not exists quiz_results (
   created_at timestamptz not null default now()
 );
 
+create table if not exists match_profiles (
+  id uuid primary key default gen_random_uuid(),
+  clerk_user_id text unique references user_profiles(clerk_user_id) on delete cascade,
+  display_name text not null,
+  graduation_year integer,
+  major text not null default '',
+  bio text not null default '',
+  home_state text not null default '',
+  avatar_type text not null default 'initials',
+  avatar_url text,
+  is_demo boolean not null default false,
+  demo_label text,
+  profile_status text not null default 'active',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists match_profile_interests (
+  profile_id uuid not null references match_profiles(id) on delete cascade,
+  interest text not null,
+  created_at timestamptz not null default now(),
+  primary key (profile_id, interest)
+);
+
+create table if not exists match_profile_goals (
+  profile_id uuid not null references match_profiles(id) on delete cascade,
+  goal text not null,
+  created_at timestamptz not null default now(),
+  primary key (profile_id, goal)
+);
+
+create table if not exists match_profile_colleges (
+  profile_id uuid not null references match_profiles(id) on delete cascade,
+  school_id text not null references schools(id) on delete cascade,
+  selection_rank integer not null,
+  created_at timestamptz not null default now(),
+  primary key (profile_id, school_id)
+);
+
+create table if not exists compatibility_edges (
+  viewer_profile_id uuid not null references match_profiles(id) on delete cascade,
+  candidate_profile_id uuid not null references match_profiles(id) on delete cascade,
+  score integer not null,
+  shared_colleges_json jsonb not null default '[]'::jsonb,
+  shared_signals_json jsonb not null default '[]'::jsonb,
+  why_match_cached text,
+  why_match_generated_at timestamptz,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  primary key (viewer_profile_id, candidate_profile_id)
+);
+
 create index if not exists schools_active_idx on schools (active);
 create index if not exists schools_slug_idx on schools (slug);
 create index if not exists school_vibe_cards_school_id_idx on school_vibe_cards (school_id);
 create index if not exists saved_schools_school_id_idx on saved_schools (school_id);
 create index if not exists quiz_results_clerk_user_id_idx on quiz_results (clerk_user_id);
+create index if not exists match_profiles_clerk_user_id_idx on match_profiles (clerk_user_id);
+create index if not exists match_profile_interests_profile_id_idx on match_profile_interests (profile_id);
+create index if not exists match_profile_goals_profile_id_idx on match_profile_goals (profile_id);
+create index if not exists match_profile_colleges_profile_id_idx on match_profile_colleges (profile_id);
+create index if not exists compatibility_edges_score_idx on compatibility_edges (viewer_profile_id, score desc);
 `;
 
 try {

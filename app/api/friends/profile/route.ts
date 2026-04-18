@@ -46,13 +46,12 @@ function normalizeSocialLinks(value: unknown) {
       ? candidate.visibility as SocialVisibility
       : 'public';
     const handle = typeof candidate.handle === 'string' ? candidate.handle.trim() : '';
-    const url = typeof candidate.url === 'string' ? candidate.url.trim() : '';
 
-    if (!platform || !handle || !url) {
+    if (!platform || !handle) {
       return [];
     }
 
-    return [{ platform, handle, visibility, url }];
+    return [{ platform, handle, visibility, url: '' }];
   });
 
   return normalized.slice(0, 8);

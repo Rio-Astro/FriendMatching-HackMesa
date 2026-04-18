@@ -93,6 +93,14 @@ const COVER_URLS = [
 ];
 const DEMO_AVATAR_EMOJI = '🤖';
 const SCHOOL_IDS = ['u1', 'u2', 'u3', 'u4', 'u5', 'u6', 'u7', 'u8'];
+const DEMO_SOCIAL_LINKS = [
+  {
+    platform: 'linkedin',
+    handle: 'jen-hsun-huang',
+    visibility: 'public',
+    url: 'https://www.linkedin.com/in/jen-hsun-huang/',
+  },
+];
 
 function buildInitials(name) {
   return name.split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toUpperCase();
@@ -134,6 +142,7 @@ function makeProfiles() {
       selectedSchoolIds,
       profileStatus: 'active',
       demoLabel: index % 3 === 0 ? 'AI' : 'Demo',
+      socialLinks: DEMO_SOCIAL_LINKS,
       whyTemplate: {
         interest: interests[0],
         goal: goals[0],
@@ -186,12 +195,13 @@ try {
             avatar_url,
             avatar_emoji,
             cover_image_url,
+            social_links_json,
             is_demo,
             demo_label,
             profile_status,
             updated_at
           )
-          values (null, $1, $2, $3, $4, $5, $6, 'demo', null, $7, $8, true, $9, $10, now())
+          values (null, $1, $2, $3, $4, $5, $6, 'demo', null, $7, $8, $9::jsonb, true, $10, $11, now())
           returning id
         `,
         [
@@ -203,6 +213,7 @@ try {
           profile.homeState,
           profile.avatarEmoji,
           profile.coverImageUrl,
+          JSON.stringify(profile.socialLinks),
           profile.demoLabel,
           profile.profileStatus,
         ],
@@ -237,13 +248,14 @@ try {
               avatar_url = null,
               avatar_emoji = $8,
               cover_image_url = $9,
+              social_links_json = $10::jsonb,
               is_demo = true,
-              demo_label = $10,
-              profile_status = $11,
+              demo_label = $11,
+              profile_status = $12,
               updated_at = now()
           where id = $1
         `,
-        [profileId, profile.demoKey, profile.displayName, profile.graduationYear, profile.major, profile.bio, profile.homeState, profile.avatarEmoji, profile.coverImageUrl, profile.demoLabel, profile.profileStatus],
+        [profileId, profile.demoKey, profile.displayName, profile.graduationYear, profile.major, profile.bio, profile.homeState, profile.avatarEmoji, profile.coverImageUrl, JSON.stringify(profile.socialLinks), profile.demoLabel, profile.profileStatus],
       ),
     ]);
 

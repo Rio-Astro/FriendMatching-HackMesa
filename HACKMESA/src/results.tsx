@@ -5,7 +5,7 @@ import type { Dispatch, SetStateAction } from 'react';
 import type { MatchedSchool, QuizAnswers, RouteName } from '@/lib/types';
 
 import { UNIVERSITIES } from './data';
-import { Icon, Nav, SchoolImage } from './shared';
+import { getCompatibilityColor, Icon, Nav, SchoolImage } from './shared';
 
 type PitchResponse = {
   pitch?: string;
@@ -123,6 +123,10 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
         ) : (
           <div className="result-list">
             {list.map((u, idx) => (
+                (() => {
+                  const compatibilityColor = getCompatibilityColor(u.score);
+
+                  return (
                 <div key={u.id} className={'result ' + (saved.includes(u.id) ? 'saved' : '')}>
                   <div className="rank">{String(idx+1).padStart(2,'0')}</div>
                   <div style={{ width: '100%' }}>
@@ -137,7 +141,9 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
                   </div>
                 </div>
                 <div className="score">
-                  <div className="n">{u.score}<span className="pct">%</span></div>
+                  <div className="n" style={{ color: compatibilityColor }}>
+                    {u.score}<span className="pct" style={{ color: compatibilityColor }}>%</span>
+                  </div>
                   <div className="lab">Match</div>
                   <div className="row">
                     <button className={'icon-btn ' + (saved.includes(u.id) ? 'on' : '')}
@@ -149,6 +155,8 @@ export default function Results({ onNav, saved, toggleSave, answers, colleges, s
                   </div>
                 </div>
               </div>
+                  );
+                })()
             ))}
           </div>
         )}

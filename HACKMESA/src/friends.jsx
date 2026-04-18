@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { FRIENDS } from './data';
-import { Icon, MonoAvatar, Nav, Placeholder } from './shared';
+import { getCompatibilityBadgeStyle, getCompatibilityColor, Icon, MonoAvatar, Nav, Placeholder } from './shared';
 
 function DemoHeroAvatar({ emoji, label }) {
   return (
@@ -22,6 +22,9 @@ export default function Friends({ onNav, selected, colleges, variant, setVariant
   };
 
   const card = (() => {
+    const compatibilityColor = getCompatibilityColor(p.compat);
+    const compatibilityBadgeStyle = getCompatibilityBadgeStyle(p.compat);
+
     const common = (
       <>
         <div className="bio">
@@ -77,7 +80,7 @@ export default function Friends({ onNav, selected, colleges, variant, setVariant
           </div>
           <div className="stat-grid">
             <div><div className="k">From</div><div className="v">{p.origin.replace('from ','')}</div></div>
-            <div><div className="k">Match</div><div className="v">{p.compat}%</div></div>
+            <div><div className="k">Match</div><div className="v" style={{ color: compatibilityColor }}>{p.compat}%</div></div>
             <div><div className="k">Shared</div><div className="v">{p.shared.slice(0,2).join(', ')}</div></div>
             <div><div className="k">Wants</div><div className="v">{p.goals[0]}</div></div>
           </div>
@@ -90,7 +93,7 @@ export default function Friends({ onNav, selected, colleges, variant, setVariant
         <div className="hero-img">
           <DemoHeroAvatar emoji={p.avatarEmoji || '🤖'} label={p.name} />
           <span className="pill">{p.school.replace(' (committed)','').replace(' (interested)','')}</span>
-          <span className="match">{p.compat}% match</span>
+          <span className="match" style={compatibilityBadgeStyle}>{p.compat}% match</span>
           <div className="overlay">
             <div className="age">{p.origin}</div>
             <h2>{p.name}, {p.age}</h2>

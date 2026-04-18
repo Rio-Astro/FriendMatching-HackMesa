@@ -1,4 +1,4 @@
-import { Icon, Nav, SchoolImage } from './shared';
+import { getCompatibilityColor, Icon, Nav, SchoolImage } from './shared';
 
 export default function Selection({ onNav, selected, toggleSelect, colleges }) {
   const max = 3;
@@ -16,6 +16,7 @@ export default function Selection({ onNav, selected, toggleSelect, colleges }) {
           {collegeList.slice(0, 6).map((u) => {
             const on = selected.includes(u.id);
             const disabled = !on && selected.length >= max;
+            const compatibilityColor = getCompatibilityColor(u.score);
             return (
               <div key={u.id} className={'sel-card ' + (on ? 'on' : '')}
                 style={disabled ? { opacity: .4, cursor: 'not-allowed' } : {}}
@@ -24,7 +25,7 @@ export default function Selection({ onNav, selected, toggleSelect, colleges }) {
                 <h4>{u.name}</h4>
                 <div className="meta">
                   <span>{u.state}</span>
-                  <span>{u.score}% match</span>
+                  <span style={{ color: compatibilityColor }}>{u.score}% match</span>
                 </div>
                 <div className="mono-tag">{u.size} · tuition {u.tuition}</div>
                 <div className="check">{on && <Icon.check size={14}/>}</div>

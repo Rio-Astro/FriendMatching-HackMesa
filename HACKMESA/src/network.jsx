@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { FRIENDS } from './data';
-import { Icon, MonoAvatar, Nav } from './shared';
+import { getCompatibilityColor, Icon, MonoAvatar, Nav } from './shared';
 
 export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewProfile }) {
   const [filter, setFilter] = useState('all');
@@ -99,6 +99,10 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
 
           <div className="network-grid">
             {filtered.map((p) => (
+              (() => {
+                const compatibilityColor = getCompatibilityColor(p.compat);
+
+                return (
               <div
                 key={p.id}
                 className="network-card"
@@ -106,7 +110,7 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
               >
                 <div className="network-card-avatar">
                   <MonoAvatar initials={p.initials} emoji={p.avatarEmoji} size={72} />
-                  <span className="network-card-compat">{p.compat}%</span>
+                  <span className="network-card-compat" style={{ color: compatibilityColor }}>{p.compat}%</span>
                 </div>
                 <div className="network-card-info">
                   <h4>{p.name}</h4>
@@ -137,6 +141,8 @@ export default function Network({ onNav, savedFriends, toggleSaveFriend, onViewP
                   </button>
                 </div>
               </div>
+                );
+              })()
             ))}
           </div>
         </div>

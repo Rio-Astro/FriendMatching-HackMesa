@@ -1,5 +1,5 @@
 import { FRIENDS } from './data';
-import { Icon, MonoAvatar, Nav } from './shared';
+import { getCompatibilityColor, Icon, MonoAvatar, Nav } from './shared';
 
 export default function Profile({ onNav, profileId, savedFriends, toggleSaveFriend }) {
   const person = FRIENDS.find((f) => f.id === profileId);
@@ -21,6 +21,7 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
   }
 
   const isSaved = savedFriends.includes(person.id);
+  const compatibilityColor = getCompatibilityColor(person.compat);
 
   return (
     <div className="page" data-screen-label="09 Profile">
@@ -36,8 +37,8 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
               <div className="profile-avatar-wrap">
                 <MonoAvatar initials={person.initials} emoji={person.avatarEmoji} size={120} />
                 <div className="profile-compat-badge">
-                  <span className="profile-compat-num">{person.compat}</span>
-                  <span className="profile-compat-pct">%</span>
+                  <span className="profile-compat-num" style={{ color: compatibilityColor }}>{person.compat}</span>
+                  <span className="profile-compat-pct" style={{ color: compatibilityColor }}>%</span>
                   <span className="profile-compat-label">compatibility</span>
                 </div>
               </div>
@@ -115,15 +116,15 @@ export default function Profile({ onNav, profileId, savedFriends, toggleSaveFrie
                   <circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" strokeWidth="6" />
                   <circle
                     cx="60" cy="60" r="52"
-                    fill="none" stroke="var(--ink)" strokeWidth="6"
+                    fill="none" stroke={compatibilityColor} strokeWidth="6"
                     strokeDasharray={`${(person.compat / 100) * 327} 327`}
                     strokeLinecap="butt"
                     transform="rotate(-90 60 60)"
                   />
                 </svg>
                 <div className="profile-ring-text">
-                  <span className="profile-ring-num">{person.compat}</span>
-                  <span className="profile-ring-pct">%</span>
+                  <span className="profile-ring-num" style={{ color: compatibilityColor }}>{person.compat}</span>
+                  <span className="profile-ring-pct" style={{ color: compatibilityColor }}>%</span>
                 </div>
               </div>
             </div>

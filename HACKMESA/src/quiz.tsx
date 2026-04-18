@@ -18,6 +18,12 @@ const FONT_SHOWCASE = [
   { family: 'var(--font-manrope), sans-serif', name: 'Manrope', weight: 500 },
 ];
 
+function getProgressColor(currentIndex: number, total: number) {
+  const progress = total <= 1 ? 1 : currentIndex / (total - 1);
+  const hue = Math.round(progress * 120);
+  return `hsl(${hue} 72% 42%)`;
+}
+
 type QuizProps = {
   onNav: (route: RouteName) => void;
   answers: QuizAnswers;
@@ -31,6 +37,7 @@ export default function Quiz({ onNav, answers, setAnswers }: QuizProps) {
   const [searchFocused, setSearchFocused] = useState(false);
   const q = QUIZ[i] as QuizQuestion;
   const total = QUIZ.length;
+  const progressColor = getProgressColor(i, total);
 
   const goTo = (next: number) => {
     setSlideKey(prev => prev + 1);
@@ -112,7 +119,7 @@ export default function Quiz({ onNav, answers, setAnswers }: QuizProps) {
 
       <div className="quiz">
         <div className="quiz-bar">
-          <div className="quiz-bar-fill" style={{ width: ((i + 1) / total * 100) + '%' }}></div>
+          <div className="quiz-bar-fill" style={{ width: ((i + 1) / total * 100) + '%', background: progressColor }}></div>
         </div>
 
         <div className="quiz-body">

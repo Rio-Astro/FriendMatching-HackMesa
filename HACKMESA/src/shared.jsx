@@ -1,5 +1,27 @@
 import { useEffect, useState } from 'react';
 
+function clampScore(score) {
+  return Math.max(0, Math.min(100, Number(score) || 0));
+}
+
+function compatibilityHue(score) {
+  return Math.round((clampScore(score) / 100) * 120);
+}
+
+export function getCompatibilityColor(score) {
+  return `hsl(${compatibilityHue(score)} 72% 42%)`;
+}
+
+export function getCompatibilityBadgeStyle(score) {
+  const hue = compatibilityHue(score);
+
+  return {
+    color: `hsl(${hue} 72% 34%)`,
+    borderColor: `hsl(${hue} 48% 76%)`,
+    background: `hsl(${hue} 100% 97%)`,
+  };
+}
+
 export function MonoAvatar({ initials, size = 40, emoji = null }) {
   return (
     <span className="mono-avatar" style={{

@@ -1048,5 +1048,2720 @@
     ],
     "bio": "A highly specialized, maritime academy directly on the bay. Students literally learn on a training ship with major trends focused on global logistics and marine engineering.",
     "imageUrl": "https://maritime-archive.calpoly.edu/_resources/images/golden-beard-2-1.jpg"
+  },
+  {
+    "id": "u57",
+    "name": "Auburn University",
+    "state": "Auburn, AL",
+    "size": "Large · 24k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "college-town",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Auburn pairs SEC school spirit with a classic college-town feel. Engineering, aviation, and a highly social campus culture define the current student vibe."
+  },
+  {
+    "id": "u58",
+    "name": "University of Alaska Fairbanks",
+    "state": "Fairbanks, AK",
+    "size": "Mid · 7k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "rural",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "A distinctive northern campus with a strong outdoors identity and deep research focus. Arctic science, engineering, and environmental fieldwork are central here."
+  },
+  {
+    "id": "u59",
+    "name": "Arizona State University",
+    "state": "Tempe, AZ",
+    "size": "Very Large · 65k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "sunny",
+      "urban",
+      "tech"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "ASU is known for scale, innovation branding, and desert-city energy. Entrepreneurship, media, and applied tech are especially strong campus currents right now."
+  },
+  {
+    "id": "u60",
+    "name": "University of Arkansas",
+    "state": "Fayetteville, AR",
+    "size": "Large · 24k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "spirited",
+      "nature"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "A rapidly growing flagship in the Ozarks with a strong school-spirit culture. Supply chain, business, and outdoor recreation shape a lot of student life."
+  },
+  {
+    "id": "u61",
+    "name": "University of Colorado Boulder",
+    "state": "Boulder, CO",
+    "size": "Large · 31k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "outdoorsy",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "CU Boulder mixes mountain access with a big flagship campus. Aerospace, climate research, and a strong outdoors culture dominate the student experience."
+  },
+  {
+    "id": "u62",
+    "name": "University of Delaware",
+    "state": "Newark, DE",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "hands-on",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "bio": "A polished East Coast flagship with strong internships and accessible campus life. Business, chemical engineering, and public policy are standout pathways."
+  },
+  {
+    "id": "u63",
+    "name": "University of Florida",
+    "state": "Gainesville, FL",
+    "size": "Very Large · 38k+",
+    "tuition": "$$",
+    "band": "low",
+    "tags": [
+      "spirited",
+      "sunny",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UF combines flagship academics with major sports energy in a classic college town. Health sciences, AI, and startup culture are especially active now."
+  },
+  {
+    "id": "u64",
+    "name": "University of Hawaii at Manoa",
+    "state": "Honolulu, HI",
+    "size": "Large · 18k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "coastal",
+      "nature",
+      "diverse"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UH Manoa offers a rare mix of island setting, research strength, and diverse student life. Marine biology, Pacific studies, and environmental science stand out."
+  },
+  {
+    "id": "u65",
+    "name": "Boise State University",
+    "state": "Boise, ID",
+    "size": "Large · 20k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "outdoorsy",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Boise State is defined by practical academics, a growing city, and easy outdoors access. Business, cybersecurity, and engineering are major draws."
+  },
+  {
+    "id": "u66",
+    "name": "University of Notre Dame",
+    "state": "Notre Dame, IN",
+    "size": "Small · 9k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "traditional",
+      "spirited",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Notre Dame has a deeply rooted residential culture and huge football identity. Undergraduate teaching, service, and alumni network strength define its appeal."
+  },
+  {
+    "id": "u67",
+    "name": "University of Iowa",
+    "state": "Iowa City, IA",
+    "size": "Large · 22k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "writing",
+      "college-town",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Iowa blends classic Big Ten energy with one of the most famous writing cultures in the country. Healthcare, journalism, and the arts all run strong here."
+  },
+  {
+    "id": "u41",
+    "name": "University of Kansas",
+    "state": "Lawrence, KS",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "college-town",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "KU has a classic basketball-first flagship culture with a laid-back college-town setting. Journalism, architecture, and public affairs are notable strengths."
+  },
+  {
+    "id": "u42",
+    "name": "University of Kentucky",
+    "state": "Lexington, KY",
+    "size": "Large · 22k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UK pairs SEC athletics with a large flagship academic experience. Healthcare, agriculture, and equine-related opportunities shape a lot of campus identity."
+  },
+  {
+    "id": "u43",
+    "name": "University of Mississippi",
+    "state": "Oxford, MS",
+    "size": "Large · 17k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "traditional",
+      "spirited",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Ole Miss has a highly social campus culture rooted in tradition and strong school pride. Public policy, business, and journalism are common student lanes."
+  },
+  {
+    "id": "u44",
+    "name": "Washington University in St. Louis",
+    "state": "St. Louis, MO",
+    "size": "Small · 8k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "pre-professional",
+      "suburban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "bio": "WashU is known for polished academics and strong pre-professional pathways. Design, medicine, and business continue to shape a lot of campus ambition."
+  },
+  {
+    "id": "u45",
+    "name": "University of Montana",
+    "state": "Missoula, MT",
+    "size": "Mid · 9k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "outdoorsy",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Montana offers a scenic, outdoors-first college life with a smaller-city feel. Wildlife biology, forestry, and environmental studies are natural fits here."
+  },
+  {
+    "id": "u46",
+    "name": "University of Nebraska-Lincoln",
+    "state": "Lincoln, NE",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Nebraska delivers big flagship spirit in a manageable state-capital setting. Engineering, agriculture, and communications are especially visible student tracks."
+  },
+  {
+    "id": "u47",
+    "name": "University of Nevada, Las Vegas",
+    "state": "Las Vegas, NV",
+    "size": "Large · 25k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "diverse",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UNLV brings a city-campus feel with a practical, career-focused student body. Hospitality, entertainment business, and healthcare are major pathways."
+  },
+  {
+    "id": "u48",
+    "name": "Dartmouth College",
+    "state": "Hanover, NH",
+    "size": "Small · 4k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "nature",
+      "close-knit",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Dartmouth offers a small, highly residential Ivy experience in a wooded New England town. Outdoors culture, tight social networks, and strong alumni ties stand out."
+  },
+  {
+    "id": "u49",
+    "name": "University of New Mexico",
+    "state": "Albuquerque, NM",
+    "size": "Large · 21k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "sunny",
+      "diverse",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UNM has a distinct Southwestern identity, broad access mission, and city-campus energy. Public health, physics, and regional culture are major strengths."
+  },
+  {
+    "id": "u50",
+    "name": "University of North Dakota",
+    "state": "Grand Forks, ND",
+    "size": "Mid · 10k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "traditional",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UND is especially known for aviation, engineering, and a practical campus culture. The student experience tends to feel more grounded and close-knit than flashy."
+  },
+  {
+    "id": "u51",
+    "name": "University of Oklahoma",
+    "state": "Norman, OK",
+    "size": "Large · 23k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "OU combines strong athletics culture with a classic big-campus social feel. Meteorology, business, and energy-related fields are particularly well known."
+  },
+  {
+    "id": "u52",
+    "name": "Clemson University",
+    "state": "Clemson, SC",
+    "size": "Large · 22k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "lake",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Clemson is deeply shaped by school pride, engineering momentum, and outdoor access near the lake. It feels energetic, social, and strongly community-oriented."
+  },
+  {
+    "id": "u53",
+    "name": "South Dakota State University",
+    "state": "Brookings, SD",
+    "size": "Mid · 11k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "college-town",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "SDSU has a practical, student-centered feel anchored by engineering, agriculture, and health fields. The campus culture is collaborative and less overwhelming."
+  },
+  {
+    "id": "u54",
+    "name": "University of Utah",
+    "state": "Salt Lake City, UT",
+    "size": "Large · 26k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "nature",
+      "tech"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "The University of Utah blends a research-intensive campus with immediate mountain access. Healthcare, data science, and outdoor lifestyle are major themes."
+  },
+  {
+    "id": "u55",
+    "name": "West Virginia University",
+    "state": "Morgantown, WV",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "nature",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "WVU has strong school pride, a hilly college-town layout, and a student culture built around connection. Energy, health sciences, and media are active lanes."
+  },
+  {
+    "id": "u56",
+    "name": "University of Wyoming",
+    "state": "Laramie, WY",
+    "size": "Mid · 8k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "close-knit",
+      "rural"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Wyoming offers a smaller flagship experience with huge sky, open landscapes, and a practical campus mood. Geology, environmental science, and engineering stand out."
+  },
+  {
+    "id": "u68",
+    "name": "University of Alabama",
+    "state": "Tuscaloosa, AL",
+    "size": "Large · 30k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Alabama offers a large · 30k experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u69",
+    "name": "University of Arizona",
+    "state": "Tucson, AZ",
+    "size": "Very Large · 40k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "sunny",
+      "urban",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Arizona offers a very large · 40k+ experience shaped by sunny and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u70",
+    "name": "University of Southern California",
+    "state": "Los Angeles, CA",
+    "size": "Large · 21k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "creative",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Southern California offers a large · 21k experience shaped by urban and creative. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u76",
+    "name": "Pepperdine University",
+    "state": "Malibu, CA",
+    "size": "Small · 4k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "coastal",
+      "close-knit",
+      "sunny"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Pepperdine University offers a small · 4k experience shaped by coastal and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u77",
+    "name": "Santa Clara University",
+    "state": "Santa Clara, CA",
+    "size": "Mid · 6k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "tech",
+      "suburban",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Santa Clara University offers a mid · 6k experience shaped by tech and suburban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u78",
+    "name": "Loyola Marymount University",
+    "state": "Los Angeles, CA",
+    "size": "Mid · 7k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "creative",
+      "sunny"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Loyola Marymount University offers a mid · 7k experience shaped by urban and creative. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u79",
+    "name": "Occidental College",
+    "state": "Los Angeles, CA",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "creative",
+      "close-knit",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Occidental College offers a small · 2k experience shaped by creative and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u80",
+    "name": "Claremont McKenna College",
+    "state": "Claremont, CA",
+    "size": "Small · 1k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "pre-professional",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Claremont McKenna College offers a small · 1k experience shaped by intellectual and pre-professional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u81",
+    "name": "Harvey Mudd College",
+    "state": "Claremont, CA",
+    "size": "Small · 1k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "tech",
+      "intense",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Harvey Mudd College offers a small · 1k experience shaped by tech and intense. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u82",
+    "name": "Colorado State University",
+    "state": "Fort Collins, CO",
+    "size": "Large · 26k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "nature",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Colorado State University offers a large · 26k experience shaped by college-town and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u83",
+    "name": "Colorado College",
+    "state": "Colorado Springs, CO",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "outdoorsy",
+      "close-knit",
+      "creative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Colorado College offers a small · 2k experience shaped by outdoorsy and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u84",
+    "name": "UConn",
+    "state": "Storrs, CT",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "traditional",
+      "spirited",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "UConn offers a large · 19k experience shaped by traditional and spirited. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u85",
+    "name": "Wesleyan University",
+    "state": "Middletown, CT",
+    "size": "Small · 3k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "creative",
+      "intellectual",
+      "progressive"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Wesleyan University offers a small · 3k experience shaped by creative and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u86",
+    "name": "American University",
+    "state": "Washington, DC",
+    "size": "Mid · 8k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "civic",
+      "global"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "American University offers a mid · 8k experience shaped by urban and civic. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u87",
+    "name": "George Washington University",
+    "state": "Washington, DC",
+    "size": "Large · 11k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "civic",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "George Washington University offers a large · 11k experience shaped by urban and civic. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u88",
+    "name": "Florida State University",
+    "state": "Tallahassee, FL",
+    "size": "Very Large · 33k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "sunny"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Florida State University offers a very large · 33k experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u89",
+    "name": "University of Miami",
+    "state": "Coral Gables, FL",
+    "size": "Mid · 12k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "sunny",
+      "urban",
+      "coastal"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Miami offers a mid · 12k experience shaped by sunny and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u90",
+    "name": "University of Central Florida",
+    "state": "Orlando, FL",
+    "size": "Very Large · 50k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "hands-on",
+      "diverse"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Central Florida offers a very large · 50k+ experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u91",
+    "name": "Georgia Tech",
+    "state": "Atlanta, GA",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "tech",
+      "urban",
+      "intense"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Georgia Tech offers a large · 19k experience shaped by tech and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u92",
+    "name": "University of Georgia",
+    "state": "Athens, GA",
+    "size": "Large · 30k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "college-town",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Georgia offers a large · 30k experience shaped by spirited and college-town. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u93",
+    "name": "Iowa State University",
+    "state": "Ames, IA",
+    "size": "Large · 25k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "college-town",
+      "tech"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Iowa State University offers a large · 25k experience shaped by hands-on and college-town. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u94",
+    "name": "Kansas State University",
+    "state": "Manhattan, KS",
+    "size": "Large · 16k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "traditional",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Kansas State University offers a large · 16k experience shaped by college-town and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u95",
+    "name": "University of Louisville",
+    "state": "Louisville, KY",
+    "size": "Large · 16k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "hands-on",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Louisville offers a large · 16k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u96",
+    "name": "Louisiana State University",
+    "state": "Baton Rouge, LA",
+    "size": "Large · 31k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Louisiana State University offers a large · 31k experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u97",
+    "name": "Loyola University New Orleans",
+    "state": "New Orleans, LA",
+    "size": "Small · 4k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "creative",
+      "civic"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Loyola University New Orleans offers a small · 4k experience shaped by urban and creative. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u98",
+    "name": "Boston College",
+    "state": "Chestnut Hill, MA",
+    "size": "Mid · 9k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "traditional",
+      "suburban",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Boston College offers a mid · 9k experience shaped by traditional and suburban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u99",
+    "name": "Boston University",
+    "state": "Boston, MA",
+    "size": "Large · 18k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "global",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Boston University offers a large · 18k experience shaped by urban and global. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u100",
+    "name": "Northeastern University",
+    "state": "Boston, MA",
+    "size": "Large · 16k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "tech",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Northeastern University offers a large · 16k experience shaped by urban and tech. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u101",
+    "name": "Wellesley College",
+    "state": "Wellesley, MA",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "close-knit",
+      "historic"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Wellesley College offers a small · 2k experience shaped by intellectual and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u102",
+    "name": "Bates College",
+    "state": "Lewiston, ME",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "nature",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Bates College offers a small · 2k experience shaped by close-knit and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u103",
+    "name": "Colby College",
+    "state": "Waterville, ME",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "nature",
+      "close-knit",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Colby College offers a small · 2k experience shaped by nature and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u104",
+    "name": "University of Maryland, College Park",
+    "state": "College Park, MD",
+    "size": "Large · 31k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "tech",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Maryland, College Park offers a large · 31k experience shaped by urban and tech. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u105",
+    "name": "Michigan State University",
+    "state": "East Lansing, MI",
+    "size": "Very Large · 39k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Michigan State University offers a very large · 39k+ experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u108",
+    "name": "University of Missouri",
+    "state": "Columbia, MO",
+    "size": "Large · 23k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "traditional",
+      "journalism"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Missouri offers a large · 23k experience shaped by college-town and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u109",
+    "name": "Saint Louis University",
+    "state": "St. Louis, MO",
+    "size": "Mid · 8k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "pre-professional",
+      "civic"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Saint Louis University offers a mid · 8k experience shaped by urban and pre-professional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u110",
+    "name": "Mississippi State University",
+    "state": "Starkville, MS",
+    "size": "Large · 18k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "college-town",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Mississippi State University offers a large · 18k experience shaped by hands-on and college-town. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u111",
+    "name": "Montana State University",
+    "state": "Bozeman, MT",
+    "size": "Large · 17k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "outdoorsy",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Montana State University offers a large · 17k experience shaped by nature and outdoorsy. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u112",
+    "name": "Wake Forest University",
+    "state": "Winston-Salem, NC",
+    "size": "Small · 5k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "pre-professional",
+      "spirited",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Wake Forest University offers a small · 5k experience shaped by pre-professional and spirited. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u113",
+    "name": "NC State University",
+    "state": "Raleigh, NC",
+    "size": "Large · 26k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "tech",
+      "urban",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "NC State University offers a large · 26k experience shaped by tech and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u114",
+    "name": "Davidson College",
+    "state": "Davidson, NC",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "intellectual",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Davidson College offers a small · 2k experience shaped by close-knit and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u115",
+    "name": "North Dakota State University",
+    "state": "Fargo, ND",
+    "size": "Large · 12k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "North Dakota State University offers a large · 12k experience shaped by hands-on and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u116",
+    "name": "Creighton University",
+    "state": "Omaha, NE",
+    "size": "Mid · 5k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "pre-professional",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Creighton University offers a mid · 5k experience shaped by urban and pre-professional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u117",
+    "name": "Rutgers University-New Brunswick",
+    "state": "New Brunswick, NJ",
+    "size": "Very Large · 35k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "diverse",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Rutgers University-New Brunswick offers a very large · 35k+ experience shaped by urban and diverse. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u118",
+    "name": "New Mexico State University",
+    "state": "Las Cruces, NM",
+    "size": "Large · 15k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "sunny",
+      "hands-on",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "New Mexico State University offers a large · 15k experience shaped by sunny and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u119",
+    "name": "University of Nevada, Reno",
+    "state": "Reno, NV",
+    "size": "Large · 17k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "hands-on",
+      "outdoorsy"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Nevada, Reno offers a large · 17k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u120",
+    "name": "Syracuse University",
+    "state": "Syracuse, NY",
+    "size": "Mid · 15k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "spirited",
+      "writing",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Syracuse University offers a mid · 15k experience shaped by spirited and writing. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u121",
+    "name": "University of Rochester",
+    "state": "Rochester, NY",
+    "size": "Mid · 7k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "research",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Rochester offers a mid · 7k experience shaped by intellectual and research. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u122",
+    "name": "Fordham University",
+    "state": "Bronx, NY",
+    "size": "Mid · 10k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "civic",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Fordham University offers a mid · 10k experience shaped by urban and civic. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u123",
+    "name": "Rensselaer Polytechnic Institute",
+    "state": "Troy, NY",
+    "size": "Small · 6k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "tech",
+      "intense",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Rensselaer Polytechnic Institute offers a small · 6k experience shaped by tech and intense. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u124",
+    "name": "Colgate University",
+    "state": "Hamilton, NY",
+    "size": "Small · 3k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "traditional",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Colgate University offers a small · 3k experience shaped by close-knit and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u125",
+    "name": "Vassar College",
+    "state": "Poughkeepsie, NY",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "creative",
+      "progressive",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Vassar College offers a small · 2k experience shaped by creative and progressive. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u126",
+    "name": "Barnard College",
+    "state": "New York, NY",
+    "size": "Small · 3k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "intellectual",
+      "creative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Barnard College offers a small · 3k experience shaped by urban and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u127",
+    "name": "Hamilton College",
+    "state": "Clinton, NY",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "writing",
+      "close-knit",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Hamilton College offers a small · 2k experience shaped by writing and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u128",
+    "name": "Stony Brook University",
+    "state": "Stony Brook, NY",
+    "size": "Large · 18k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "tech",
+      "research",
+      "suburban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Stony Brook University offers a large · 18k experience shaped by tech and research. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u129",
+    "name": "Binghamton University",
+    "state": "Binghamton, NY",
+    "size": "Large · 14k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "intellectual",
+      "traditional",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Binghamton University offers a large · 14k experience shaped by intellectual and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u130",
+    "name": "Ohio State University",
+    "state": "Columbus, OH",
+    "size": "Very Large · 45k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "urban",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Ohio State University offers a very large · 45k+ experience shaped by spirited and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u131",
+    "name": "Case Western Reserve University",
+    "state": "Cleveland, OH",
+    "size": "Small · 6k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "science",
+      "urban",
+      "intense"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Case Western Reserve University offers a small · 6k experience shaped by science and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u132",
+    "name": "Miami University",
+    "state": "Oxford, OH",
+    "size": "Large · 18k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "traditional",
+      "college-town",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Miami University offers a large · 18k experience shaped by traditional and college-town. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u133",
+    "name": "Denison University",
+    "state": "Granville, OH",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "creative",
+      "nature"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Denison University offers a small · 2k experience shaped by close-knit and creative. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u134",
+    "name": "University of Tulsa",
+    "state": "Tulsa, OK",
+    "size": "Small · 3k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "hands-on",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Tulsa offers a small · 3k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u135",
+    "name": "University of Oregon",
+    "state": "Eugene, OR",
+    "size": "Large · 20k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "nature",
+      "creative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Oregon offers a large · 20k experience shaped by spirited and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u136",
+    "name": "Oregon State University",
+    "state": "Corvallis, OR",
+    "size": "Large · 24k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "nature",
+      "tech"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Oregon State University offers a large · 24k experience shaped by hands-on and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u137",
+    "name": "Penn State",
+    "state": "University Park, PA",
+    "size": "Very Large · 40k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "college-town",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Penn State offers a very large · 40k+ experience shaped by spirited and college-town. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u138",
+    "name": "University of Pittsburgh",
+    "state": "Pittsburgh, PA",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "research",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Pittsburgh offers a large · 19k experience shaped by urban and research. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u139",
+    "name": "Villanova University",
+    "state": "Villanova, PA",
+    "size": "Mid · 7k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "traditional",
+      "suburban",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Villanova University offers a mid · 7k experience shaped by traditional and suburban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u141",
+    "name": "Haverford College",
+    "state": "Haverford, PA",
+    "size": "Small · 1k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "writing",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Haverford College offers a small · 1k experience shaped by close-knit and writing. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u142",
+    "name": "Rhode Island School of Design",
+    "state": "Providence, RI",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "creative",
+      "arts-forward",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Rhode Island School of Design offers a small · 2k experience shaped by creative and arts-forward. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u143",
+    "name": "College of Charleston",
+    "state": "Charleston, SC",
+    "size": "Mid · 10k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "coastal",
+      "historic",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "College of Charleston offers a mid · 10k experience shaped by coastal and historic. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u144",
+    "name": "University of South Dakota",
+    "state": "Vermillion, SD",
+    "size": "Mid · 7k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "traditional",
+      "hands-on",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of South Dakota offers a mid · 7k experience shaped by traditional and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u145",
+    "name": "University of Tennessee, Knoxville",
+    "state": "Knoxville, TN",
+    "size": "Large · 26k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Tennessee, Knoxville offers a large · 26k experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u146",
+    "name": "Rhodes College",
+    "state": "Memphis, TN",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "historic",
+      "close-knit",
+      "creative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Rhodes College offers a small · 2k experience shaped by historic and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u147",
+    "name": "Texas A&M University",
+    "state": "College Station, TX",
+    "size": "Very Large · 50k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "traditional",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Texas A&M University offers a very large · 50k+ experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u148",
+    "name": "Southern Methodist University",
+    "state": "Dallas, TX",
+    "size": "Mid · 7k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "pre-professional",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Southern Methodist University offers a mid · 7k experience shaped by urban and pre-professional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u149",
+    "name": "Texas Christian University",
+    "state": "Fort Worth, TX",
+    "size": "Mid · 10k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "spirited",
+      "traditional",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Texas Christian University offers a mid · 10k experience shaped by spirited and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u150",
+    "name": "Baylor University",
+    "state": "Waco, TX",
+    "size": "Large · 15k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "traditional",
+      "spirited",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Baylor University offers a large · 15k experience shaped by traditional and spirited. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u151",
+    "name": "Trinity University",
+    "state": "San Antonio, TX",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "urban",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Trinity University offers a small · 2k experience shaped by close-knit and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u152",
+    "name": "Brigham Young University",
+    "state": "Provo, UT",
+    "size": "Large · 35k",
+    "tuition": "$$",
+    "band": "low",
+    "tags": [
+      "close-knit",
+      "traditional",
+      "mountains"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Brigham Young University offers a large · 35k experience shaped by close-knit and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u153",
+    "name": "Utah State University",
+    "state": "Logan, UT",
+    "size": "Large · 20k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "hands-on",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Utah State University offers a large · 20k experience shaped by nature and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u154",
+    "name": "Virginia Tech",
+    "state": "Blacksburg, VA",
+    "size": "Very Large · 30k+",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "hands-on",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Virginia Tech offers a very large · 30k+ experience shaped by spirited and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u155",
+    "name": "William & Mary",
+    "state": "Williamsburg, VA",
+    "size": "Small · 6k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "historic",
+      "intellectual",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "William & Mary offers a small · 6k experience shaped by historic and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u156",
+    "name": "University of Richmond",
+    "state": "Richmond, VA",
+    "size": "Small · 4k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "pre-professional",
+      "suburban",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Richmond offers a small · 4k experience shaped by pre-professional and suburban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u157",
+    "name": "Washington State University",
+    "state": "Pullman, WA",
+    "size": "Large · 22k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "hands-on",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Washington State University offers a large · 22k experience shaped by college-town and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u158",
+    "name": "Gonzaga University",
+    "state": "Spokane, WA",
+    "size": "Small · 5k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "spirited",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Gonzaga University offers a small · 5k experience shaped by close-knit and spirited. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u159",
+    "name": "Marquette University",
+    "state": "Milwaukee, WI",
+    "size": "Mid · 8k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "pre-professional",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Marquette University offers a mid · 8k experience shaped by urban and pre-professional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u160",
+    "name": "Brandeis University",
+    "state": "Waltham, MA",
+    "size": "Small · 4k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "research",
+      "creative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Brandeis University offers a small · 4k experience shaped by intellectual and research. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u161",
+    "name": "University of Massachusetts Amherst",
+    "state": "Amherst, MA",
+    "size": "Large · 24k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "research",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Massachusetts Amherst offers a large · 24k experience shaped by college-town and research. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u162",
+    "name": "University of Illinois Urbana-Champaign",
+    "state": "Champaign, IL",
+    "size": "Large · 35k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "tech",
+      "research",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Illinois Urbana-Champaign offers a large · 35k experience shaped by tech and research. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u163",
+    "name": "Purdue University",
+    "state": "West Lafayette, IN",
+    "size": "Large · 37k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "tech",
+      "hands-on",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Purdue University offers a large · 37k experience shaped by tech and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u164",
+    "name": "Indiana University Bloomington",
+    "state": "Bloomington, IN",
+    "size": "Large · 34k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "creative",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Indiana University Bloomington offers a large · 34k experience shaped by college-town and creative. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u165",
+    "name": "Louisiana Tech University",
+    "state": "Ruston, LA",
+    "size": "Mid · 10k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "hands-on",
+      "tech",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Louisiana Tech University offers a mid · 10k experience shaped by hands-on and tech. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u166",
+    "name": "University of Idaho",
+    "state": "Moscow, ID",
+    "size": "Mid · 8k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "college-town",
+      "hands-on",
+      "nature"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Idaho offers a mid · 8k experience shaped by college-town and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u167",
+    "name": "University of Kansas Medical Center Pathway Program",
+    "state": "Kansas City, KS",
+    "size": "Small · 3k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "science",
+      "urban",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Kansas Medical Center Pathway Program offers a small · 3k experience shaped by science and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u168",
+    "name": "University of New Hampshire",
+    "state": "Durham, NH",
+    "size": "Large · 12k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "traditional",
+      "college-town"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of New Hampshire offers a large · 12k experience shaped by nature and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u169",
+    "name": "University of South Carolina",
+    "state": "Columbia, SC",
+    "size": "Large · 27k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "urban",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of South Carolina offers a large · 27k experience shaped by spirited and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u170",
+    "name": "University of Vermont",
+    "state": "Burlington, VT",
+    "size": "Large · 11k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "coastal",
+      "progressive"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Vermont offers a large · 11k experience shaped by nature and coastal. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u171",
+    "name": "Columbia College Chicago",
+    "state": "Chicago, IL",
+    "size": "Mid · 6k",
+    "tuition": "$$$",
+    "band": "mid",
+    "tags": [
+      "creative",
+      "urban",
+      "arts-forward"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Columbia College Chicago offers a mid · 6k experience shaped by creative and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u172",
+    "name": "University of San Diego",
+    "state": "San Diego, CA",
+    "size": "Mid · 6k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "coastal",
+      "close-knit",
+      "sunny"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of San Diego offers a mid · 6k experience shaped by coastal and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u174",
+    "name": "University of Cincinnati",
+    "state": "Cincinnati, OH",
+    "size": "Large · 28k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "hands-on",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Cincinnati offers a large · 28k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u175",
+    "name": "Lehigh University",
+    "state": "Bethlehem, PA",
+    "size": "Small · 5k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "pre-professional",
+      "intense",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Lehigh University offers a small · 5k experience shaped by pre-professional and intense. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u176",
+    "name": "George Mason University",
+    "state": "Fairfax, VA",
+    "size": "Large · 28k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "diverse",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "George Mason University offers a large · 28k experience shaped by urban and diverse. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u177",
+    "name": "University of Denver",
+    "state": "Denver, CO",
+    "size": "Mid · 6k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "outdoorsy",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Denver offers a mid · 6k experience shaped by urban and outdoorsy. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u178",
+    "name": "Scripps College",
+    "state": "Claremont, CA",
+    "size": "Small · 1k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "creative",
+      "close-knit",
+      "intellectual"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Scripps College offers a small · 1k experience shaped by creative and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u179",
+    "name": "Pitzer College",
+    "state": "Claremont, CA",
+    "size": "Small · 1k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "progressive",
+      "creative",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Pitzer College offers a small · 1k experience shaped by progressive and creative. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u180",
+    "name": "University of Redlands",
+    "state": "Redlands, CA",
+    "size": "Small · 3k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "sunny",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Redlands offers a small · 3k experience shaped by close-knit and sunny. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u181",
+    "name": "University of Portland",
+    "state": "Portland, OR",
+    "size": "Small · 4k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "close-knit",
+      "urban",
+      "creative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Portland offers a small · 4k experience shaped by close-knit and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u182",
+    "name": "Santa Rosa Junior College Transfer Honors Pathway",
+    "state": "Santa Rosa, CA",
+    "size": "Mid · 12k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Santa Rosa Junior College Transfer Honors Pathway offers a mid · 12k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u183",
+    "name": "New Jersey Institute of Technology",
+    "state": "Newark, NJ",
+    "size": "Large · 11k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "tech",
+      "urban",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "New Jersey Institute of Technology offers a large · 11k experience shaped by tech and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u184",
+    "name": "Temple University",
+    "state": "Philadelphia, PA",
+    "size": "Large · 27k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "diverse",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Temple University offers a large · 27k experience shaped by urban and diverse. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u185",
+    "name": "Tulsa Community Transfer Honors Pathway",
+    "state": "Tulsa, OK",
+    "size": "Mid · 10k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Tulsa Community Transfer Honors Pathway offers a mid · 10k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u186",
+    "name": "University of Central Oklahoma",
+    "state": "Edmond, OK",
+    "size": "Large · 13k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "traditional",
+      "hands-on",
+      "suburban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Central Oklahoma offers a large · 13k experience shaped by traditional and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u187",
+    "name": "Bryn Mawr College",
+    "state": "Bryn Mawr, PA",
+    "size": "Small · 2k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "intellectual",
+      "close-knit",
+      "historic"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Bryn Mawr College offers a small · 2k experience shaped by intellectual and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u188",
+    "name": "Skidmore College",
+    "state": "Saratoga Springs, NY",
+    "size": "Small · 3k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "creative",
+      "close-knit",
+      "progressive"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Skidmore College offers a small · 3k experience shaped by creative and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u189",
+    "name": "University of Tampa",
+    "state": "Tampa, FL",
+    "size": "Mid · 10k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "sunny",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Tampa offers a mid · 10k experience shaped by urban and sunny. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u190",
+    "name": "Arizona College Transfer Honors Pathway",
+    "state": "Phoenix, AZ",
+    "size": "Mid · 11k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Arizona College Transfer Honors Pathway offers a mid · 11k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u191",
+    "name": "Thomas Jefferson University",
+    "state": "Philadelphia, PA",
+    "size": "Mid · 8k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "science",
+      "urban",
+      "pre-professional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Thomas Jefferson University offers a mid · 8k experience shaped by science and urban. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u192",
+    "name": "Drexel University",
+    "state": "Philadelphia, PA",
+    "size": "Large · 14k",
+    "tuition": "$$$$",
+    "band": "high",
+    "tags": [
+      "urban",
+      "hands-on",
+      "tech"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Drexel University offers a large · 14k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u193",
+    "name": "University of Alabama at Birmingham",
+    "state": "Birmingham, AL",
+    "size": "Large · 14k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "science",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Alabama at Birmingham offers a large · 14k experience shaped by urban and science. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u194",
+    "name": "University of Nevada, Las Vegas Honors Pathway",
+    "state": "Las Vegas, NV",
+    "size": "Large · 24k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "hands-on",
+      "diverse"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Nevada, Las Vegas Honors Pathway offers a large · 24k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u195",
+    "name": "University of Maine",
+    "state": "Orono, ME",
+    "size": "Mid · 8k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "hands-on",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Maine offers a mid · 8k experience shaped by nature and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u196",
+    "name": "University of Rhode Island",
+    "state": "Kingston, RI",
+    "size": "Large · 14k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "coastal",
+      "traditional",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Rhode Island offers a large · 14k experience shaped by coastal and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u197",
+    "name": "University of Missouri-Kansas City",
+    "state": "Kansas City, MO",
+    "size": "Mid · 11k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "hands-on",
+      "diverse"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Missouri-Kansas City offers a mid · 11k experience shaped by urban and hands-on. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u198",
+    "name": "University of Nebraska Omaha",
+    "state": "Omaha, NE",
+    "size": "Large · 12k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "commuter",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Nebraska Omaha offers a large · 12k experience shaped by urban and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u199",
+    "name": "University of South Florida",
+    "state": "Tampa, FL",
+    "size": "Large · 32k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "diverse",
+      "research"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of South Florida offers a large · 32k experience shaped by urban and diverse. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u200",
+    "name": "University of Alaska Anchorage",
+    "state": "Anchorage, AK",
+    "size": "Mid · 9k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "nature",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Alaska Anchorage offers a mid · 9k experience shaped by urban and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u201",
+    "name": "University of Arkansas at Little Rock",
+    "state": "Little Rock, AR",
+    "size": "Mid · 7k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "commuter",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Arkansas at Little Rock offers a mid · 7k experience shaped by urban and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u202",
+    "name": "University of South Dakota Honors College",
+    "state": "Vermillion, SD",
+    "size": "Mid · 7k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "community",
+      "close-knit",
+      "traditional"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of South Dakota Honors College offers a mid · 7k experience shaped by community and close-knit. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u203",
+    "name": "University of Delaware Honors College",
+    "state": "Newark, DE",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "intellectual",
+      "community",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Delaware Honors College offers a large · 19k experience shaped by intellectual and community. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u204",
+    "name": "University of Wyoming Honors College",
+    "state": "Laramie, WY",
+    "size": "Mid · 8k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "community",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Wyoming Honors College offers a mid · 8k experience shaped by nature and community. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u205",
+    "name": "University of New Mexico Honors College",
+    "state": "Albuquerque, NM",
+    "size": "Large · 21k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "intellectual",
+      "diverse"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of New Mexico Honors College offers a large · 21k experience shaped by urban and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u206",
+    "name": "University of Mississippi Honors College",
+    "state": "Oxford, MS",
+    "size": "Large · 17k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "community",
+      "traditional",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Mississippi Honors College offers a large · 17k experience shaped by community and traditional. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u207",
+    "name": "University of Montana Honors College",
+    "state": "Missoula, MT",
+    "size": "Mid · 9k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "intellectual",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Montana Honors College offers a mid · 9k experience shaped by nature and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u208",
+    "name": "West Virginia University Honors College",
+    "state": "Morgantown, WV",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "spirited",
+      "community",
+      "nature"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "West Virginia University Honors College offers a large · 19k experience shaped by spirited and community. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u209",
+    "name": "University of Hawaii Hilo",
+    "state": "Hilo, HI",
+    "size": "Small · 3k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "coastal",
+      "nature",
+      "close-knit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Hawaii Hilo offers a small · 3k experience shaped by coastal and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u210",
+    "name": "University of Vermont Honors College",
+    "state": "Burlington, VT",
+    "size": "Large · 11k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "nature",
+      "intellectual",
+      "progressive"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Vermont Honors College offers a large · 11k experience shaped by nature and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u211",
+    "name": "University of Idaho Honors Program",
+    "state": "Moscow, ID",
+    "size": "Mid · 8k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "community",
+      "nature",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Idaho Honors Program offers a mid · 8k experience shaped by community and nature. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u212",
+    "name": "University of Nevada Reno Honors Program",
+    "state": "Reno, NV",
+    "size": "Large · 17k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "intellectual",
+      "outdoorsy"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Nevada Reno Honors Program offers a large · 17k experience shaped by urban and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u213",
+    "name": "University of Kansas Honors Program",
+    "state": "Lawrence, KS",
+    "size": "Large · 19k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "intellectual",
+      "college-town",
+      "spirited"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Kansas Honors Program offers a large · 19k experience shaped by intellectual and college-town. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "u214",
+    "name": "University of Louisville Honors Program",
+    "state": "Louisville, KY",
+    "size": "Large · 16k",
+    "tuition": "$$",
+    "band": "mid",
+    "tags": [
+      "urban",
+      "intellectual",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80",
+    "bio": "University of Louisville Honors Program offers a large · 16k experience shaped by urban and intellectual. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la1",
+    "name": "Los Angeles City College",
+    "state": "Los Angeles, CA",
+    "size": "Large · 15k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles City College offers a large · 15k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la2",
+    "name": "East Los Angeles College",
+    "state": "Monterey Park, CA",
+    "size": "Large · 30k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "diverse"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "East Los Angeles College offers a large · 30k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la3",
+    "name": "Los Angeles Harbor College",
+    "state": "Wilmington, CA",
+    "size": "Mid · 9k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "coastal"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles Harbor College offers a mid · 9k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la4",
+    "name": "Los Angeles Mission College",
+    "state": "Sylmar, CA",
+    "size": "Mid · 11k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles Mission College offers a mid · 11k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la5",
+    "name": "Los Angeles Pierce College",
+    "state": "Woodland Hills, CA",
+    "size": "Large · 18k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "suburban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles Pierce College offers a large · 18k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la6",
+    "name": "Los Angeles Southwest College",
+    "state": "Los Angeles, CA",
+    "size": "Mid · 8k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles Southwest College offers a mid · 8k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la7",
+    "name": "Los Angeles Trade-Technical College",
+    "state": "Los Angeles, CA",
+    "size": "Large · 13k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles Trade-Technical College offers a large · 13k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la8",
+    "name": "Los Angeles Valley College",
+    "state": "Valley Glen, CA",
+    "size": "Large · 16k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Los Angeles Valley College offers a large · 16k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la9",
+    "name": "West Los Angeles College",
+    "state": "Culver City, CA",
+    "size": "Mid · 12k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "West Los Angeles College offers a mid · 12k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la10",
+    "name": "Pasadena City College",
+    "state": "Pasadena, CA",
+    "size": "Large · 22k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Pasadena City College offers a large · 22k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la11",
+    "name": "Glendale Community College",
+    "state": "Glendale, CA",
+    "size": "Large · 15k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Glendale Community College offers a large · 15k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la12",
+    "name": "Santa Monica College",
+    "state": "Santa Monica, CA",
+    "size": "Large · 25k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "coastal"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Santa Monica College offers a large · 25k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la13",
+    "name": "El Camino College",
+    "state": "Torrance, CA",
+    "size": "Large · 22k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "hands-on"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "El Camino College offers a large · 22k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la14",
+    "name": "Long Beach City College",
+    "state": "Long Beach, CA",
+    "size": "Large · 20k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "urban"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Long Beach City College offers a large · 20k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la15",
+    "name": "Rio Hondo College",
+    "state": "Whittier, CA",
+    "size": "Large · 16k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Rio Hondo College offers a large · 16k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
+  },
+  {
+    "id": "la16",
+    "name": "Mt. San Antonio College",
+    "state": "Walnut, CA",
+    "size": "Large · 28k",
+    "tuition": "$",
+    "band": "low",
+    "tags": [
+      "community",
+      "commuter",
+      "transfer-friendly"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Mt. San Antonio College offers a large · 28k experience shaped by community and commuter. Students often look here for a campus that feels grounded, active, and easier to imagine themselves in."
   }
 ]

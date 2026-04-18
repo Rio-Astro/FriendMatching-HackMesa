@@ -57,7 +57,7 @@
 - `app/colleges.json` is the editable school source of truth in the repo.
 - After changing school records in `app/colleges.json`, rerun `npm run db:seed` or Neon will still serve stale data.
 - After changing the DB schema in `scripts/init-neon-schema.mjs`, rerun `npm run db:init`.
-- The current seeded catalog size is 70 schools.
+- The current seeded catalog size is 251 schools.
 
 ## Auth Notes
 
